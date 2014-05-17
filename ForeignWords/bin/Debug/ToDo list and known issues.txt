@@ -1,0 +1,11 @@
+Known issues
+Not all the program is internationalized
+
+Feature requests
+
+ToDo list
+Internazionalize message boxes and changing button's captions
+Use ArrayLists to store internationalized captions
+Use SQLite to manage internationalized captions
+Make some sort of help
+

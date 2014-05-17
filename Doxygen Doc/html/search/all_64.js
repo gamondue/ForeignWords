@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['dispose',['Dispose',['../classgamon_1_1frm_about.html#adc2ddbe2431f3f12e7c576d0454cd652',1,'gamon.frmAbout.Dispose()'],['../classgamon_1_1_foreign_words_1_1frm_domande.html#a7e9ef6ad9c26d03ed61cf98c57a8e494',1,'gamon.ForeignWords.frmDomande.Dispose()'],['../classgamon_1_1_foreign_words_1_1frm_esercizio.html#ad3fe9cb7d314a0a6cb69bd4d5266c0fb',1,'gamon.ForeignWords.frmEsercizio.Dispose()'],['../classgamon_1_1_foreign_words_1_1frm_nuovo_random.html#ab416ec831bbcd0c2e49809bec9fa7bfa',1,'gamon.ForeignWords.frmNuovoRandom.Dispose()'],['../classgamon_1_1_foreign_words_1_1frm_tutti_esercizi.html#aef9b739e251fee912afe7d18137f8e2e',1,'gamon.ForeignWords.frmTuttiEsercizi.Dispose()'],['../classgamon_1_1_foreign_words_1_1frm_verbi.html#a55c82a483dfe6194cb98601a0bf7341a',1,'gamon.ForeignWords.frmVerbi.Dispose()']]]
+];
