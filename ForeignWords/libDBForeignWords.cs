@@ -424,10 +424,10 @@ namespace gamon.ForeignWords
             // verbi della tabella VerbiInglesi che non sono inclusi nell'esercizio il cui codice viene passato
             dAdapter = new SQLiteDataAdapter("SELECT * " + 
                                              "FROM VerbiInglesi" +
-                                             " WHERE IdVerbo NOT IN" +
-                                             " (Select IdVerbo FROM VerbiEsercizi" +
+                                             " WHERE IdVerb NOT IN" +
+                                             " (Select IdVerb FROM VerbiEsercizi" +
                                                 " WHERE IdEsercizio =" + CodEsercizio + ")" +
-                                                " ORDER BY Infinito;",
+                                                " ORDER BY Infinitive;",
                                                     (System.Data.SQLite.SQLiteConnection)conn);
 
             // lettura della tabella Verbi

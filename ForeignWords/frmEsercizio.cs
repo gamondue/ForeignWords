@@ -59,8 +59,8 @@ namespace gamon.ForeignWords
             grdEsercizio.DataSource = bindSVerbiEsercizio;
             grdEsercizio.Columns[0].ReadOnly = true;
             grdEsercizio.Columns[0].Visible = false;
-            grdEsercizio.Columns[5].Visible = false;
-            grdEsercizio.Columns[6].Visible = false;
+            ////////grdEsercizio.Columns[5].Visible = false;
+            ////////grdEsercizio.Columns[6].Visible = false;
         }
 
         public void btnDestra_Click(object sender, EventArgs e)

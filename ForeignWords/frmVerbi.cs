@@ -492,6 +492,7 @@ namespace gamon.ForeignWords
 
         private void eserciziToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //TODO AGGIUSTARE !!!!!!!
             frmEsercizio frm = new frmEsercizio(codEsercizioCorrente, esercizioCorrente, this);
             frm.ShowDialog();
             verbi = leggiVerbiDaDB(codEsercizioCorrente);
