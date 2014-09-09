@@ -167,7 +167,7 @@ namespace gamon
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(186, 21);
             this.label3.TabIndex = 21;
-            this.label3.Text = "ITI Cesena";
+            this.label3.Text = "ITT Cesena";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
@@ -272,8 +272,8 @@ namespace gamon
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About";
-            this.Load += new System.EventHandler(this.frmAbout_Load);
             this.Activated += new System.EventHandler(this.frmAbout_Activated);
+            this.Load += new System.EventHandler(this.frmAbout_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using System.Globalization;
 
 namespace gamon.ForeignWords
 {
@@ -23,6 +24,22 @@ namespace gamon.ForeignWords
         {
             InitializeComponent();
             // Global.caricaLinguaInControlli(this);
+
+            // inizializzazioni per tutta l'applicazione
+            // lingua di default
+            Global.LinguaCorrente = "English";
+            // lingua del computer
+            string linguaComputer = CultureInfo.CurrentCulture.Name.ToLower();
+            foreach (string lingua in Global.Lingue)
+            {
+                //TODO aggiungere il codice lingua al database, così che il prossimo confronto
+                // possa funzionare
+                if (lingua.ToLower() == linguaComputer)
+                {
+                    Global.LinguaCorrente = lingua;
+                }
+                break;
+            }
 
             doCheckBoxes();
             collegaGriglia();

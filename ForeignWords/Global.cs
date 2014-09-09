@@ -14,7 +14,6 @@ namespace gamon.ForeignWords
         public static Hashtable Captions;
 
         public static libDBForeignWords LibDB = new libDBForeignWords(libDBForeignWords.TipoDB.SQLite);
-        //public libDBParoleInglesi LibDB = new libDBParoleInglesi(libDBParoleInglesi.TipoDB.Access);
 
         #region proprietà
         public static string LinguaCorrente

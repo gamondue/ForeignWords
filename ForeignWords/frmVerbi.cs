@@ -7,7 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using gamon;
 using System.Data.Common; 
-using System.Collections; 
+using System.Collections;
+using System.Globalization; 
 
 namespace gamon.ForeignWords
 {
@@ -41,9 +42,22 @@ namespace gamon.ForeignWords
             InitializeComponent();
 
             // inizializzazioni per tutta l'applicazione
-            // liguaggio di default
+            // lingua di default
             Global.LinguaCorrente = "English";
-            AggiuntaMenu(mnuLanguage);
+            // lingua del computer
+            string linguaComputer = CultureInfo.CurrentCulture.Name.ToLower();
+            foreach (string lingua in Global.Lingue)
+            {
+                //TODO aggiungere il codice lingua al database, così che il prossimo confronto
+                // possa funzionare
+                if (lingua.ToLower() == linguaComputer)
+                {
+                    Global.LinguaCorrente = lingua;
+                }
+                break;
+            }
+
+            aggiuntaMenu(mnuLanguage);
             nascondiInfinito();
 
             // inizializzazioni per questo form
@@ -313,12 +327,6 @@ namespace gamon.ForeignWords
                 }
             }
             return false;
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAbout a = new frmAbout();
-            a.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -714,18 +722,6 @@ namespace gamon.ForeignWords
             }
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try 
-            {
-                System.Diagnostics.Process.Start("help.txt");
-            }
-            catch
-            {
-                MessageBox.Show("Couldn't open file 'help.txt'.");
-            }
-        }
-
         private void mnuToDo_Click(object sender, EventArgs e)
         {
             try
@@ -739,7 +735,7 @@ namespace gamon.ForeignWords
         }
         #region gestione menù linguaggi
 
-        public void AggiuntaMenu(ToolStripMenuItem ItemPadre)
+        public void aggiuntaMenu(ToolStripMenuItem ItemPadre)
         {
             ArrayList lin = Global.LibDB.LinguePresenti();
             // aggiorno il menu con i linguaggi supportati
@@ -797,5 +793,33 @@ namespace gamon.ForeignWords
             displayNDomande.Text = verbi.Length.ToString();
             txtTempoTotale.Text = ((int)verbi.Length * (tMaxRisposta/2) / 60).ToString(); 
         }
-    }
+
+        private void mnuHelp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("Help_" + Global.LinguaCorrente + ".txt");
+            }
+            catch
+            {
+                MessageBox.Show("Couldn't open file 'help.txt'.");
+            }
+        }
+
+        private void mnuAbout_Click(object sender, EventArgs e)
+        {
+            frmAbout a = new frmAbout();
+            a.ShowDialog();
+        }
+
+        private void mnuExportExercise_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("To do!");
+        }
+
+        private void mnuExportWithName_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("To do!");
+        }
+     }
 }

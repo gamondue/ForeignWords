@@ -61,6 +61,7 @@ namespace gamon.ForeignWords
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuToDo = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDaCancellareNON_CI_RIESCO = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblDisplayPunteggioDomanda = new System.Windows.Forms.Label();
             this.lblDisplayPunteggioTotale = new System.Windows.Forms.Label();
@@ -303,12 +304,14 @@ namespace gamon.ForeignWords
             this.mnuExportExercise.Name = "mnuExportExercise";
             this.mnuExportExercise.Size = new System.Drawing.Size(250, 22);
             this.mnuExportExercise.Text = "Esporta esercizio";
+            this.mnuExportExercise.Click += new System.EventHandler(this.mnuExportExercise_Click);
             // 
             // mnuExportWithName
             // 
             this.mnuExportWithName.Name = "mnuExportWithName";
             this.mnuExportWithName.Size = new System.Drawing.Size(250, 22);
             this.mnuExportWithName.Text = "Esporta con nome";
+            this.mnuExportWithName.Click += new System.EventHandler(this.mnuExportWithName_Click);
             // 
             // mnuModify
             // 
@@ -350,7 +353,8 @@ namespace gamon.ForeignWords
             // 
             this.mnuQuestionMark.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHelp,
-            this.mnuAbout});
+            this.mnuAbout,
+            this.mnuToDo});
             this.mnuQuestionMark.Name = "mnuQuestionMark";
             this.mnuQuestionMark.Size = new System.Drawing.Size(24, 20);
             this.mnuQuestionMark.Text = "?";
@@ -358,21 +362,30 @@ namespace gamon.ForeignWords
             // mnuHelp
             // 
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(107, 22);
+            this.mnuHelp.Size = new System.Drawing.Size(152, 22);
             this.mnuHelp.Text = "Help";
+            this.mnuHelp.Click += new System.EventHandler(this.mnuHelp_Click);
             // 
             // mnuAbout
             // 
             this.mnuAbout.Name = "mnuAbout";
-            this.mnuAbout.Size = new System.Drawing.Size(107, 22);
+            this.mnuAbout.Size = new System.Drawing.Size(152, 22);
             this.mnuAbout.Text = "About";
+            this.mnuAbout.Click += new System.EventHandler(this.mnuAbout_Click);
             // 
             // mnuToDo
             // 
             this.mnuToDo.Name = "mnuToDo";
-            this.mnuToDo.Size = new System.Drawing.Size(293, 24);
-            this.mnuToDo.Text = "Cose da fare ed errori conosciuti";
+            this.mnuToDo.Size = new System.Drawing.Size(152, 22);
+            this.mnuToDo.Text = "Todo";
             this.mnuToDo.Click += new System.EventHandler(this.mnuToDo_Click);
+            // 
+            // mnuDaCancellareNON_CI_RIESCO
+            // 
+            this.mnuDaCancellareNON_CI_RIESCO.Name = "mnuDaCancellareNON_CI_RIESCO";
+            this.mnuDaCancellareNON_CI_RIESCO.Size = new System.Drawing.Size(293, 24);
+            this.mnuDaCancellareNON_CI_RIESCO.Text = "Cose da fare ed errori conosciuti";
+            this.mnuDaCancellareNON_CI_RIESCO.Click += new System.EventHandler(this.mnuToDo_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -537,7 +550,7 @@ namespace gamon.ForeignWords
             this.txtTempoTotale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTempoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTempoTotale.Location = new System.Drawing.Point(572, 42);
+            this.txtTempoTotale.Location = new System.Drawing.Point(571, 42);
             this.txtTempoTotale.Name = "txtTempoTotale";
             this.txtTempoTotale.Size = new System.Drawing.Size(59, 37);
             this.txtTempoTotale.TabIndex = 37;
@@ -548,10 +561,10 @@ namespace gamon.ForeignWords
             // lblTempoTotale
             // 
             this.lblTempoTotale.AutoSize = true;
-            this.lblTempoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTempoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTempoTotale.Location = new System.Drawing.Point(446, 42);
             this.lblTempoTotale.Name = "lblTempoTotale";
-            this.lblTempoTotale.Size = new System.Drawing.Size(120, 24);
+            this.lblTempoTotale.Size = new System.Drawing.Size(106, 20);
             this.lblTempoTotale.TabIndex = 38;
             this.lblTempoTotale.Text = "Tempo totale";
             this.lblTempoTotale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -706,11 +719,12 @@ namespace gamon.ForeignWords
         private System.Windows.Forms.ProgressBar pbarTotale;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ToolStripMenuItem mnuLanguage;
-        private System.Windows.Forms.ToolStripMenuItem mnuToDo;
+        private System.Windows.Forms.ToolStripMenuItem mnuDaCancellareNON_CI_RIESCO;
         private System.Windows.Forms.ToolStripMenuItem mnuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem mnuQuestionMark;
         private System.Windows.Forms.ToolStripMenuItem mnuHelp;
         private System.Windows.Forms.ToolStripMenuItem mnuAbout;
+        private System.Windows.Forms.ToolStripMenuItem mnuToDo;
     }
 }
 
