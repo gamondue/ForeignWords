@@ -15,6 +15,7 @@ namespace gamon.ForeignWords
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            /////////////////////////Application.Run(new frmAbout());
             Application.Run(new frmEdit());
         }
     }

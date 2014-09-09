@@ -39,6 +39,10 @@
             this.bindCaptions = new System.Windows.Forms.BindingSource(this.components);
             this.btnNuova = new System.Windows.Forms.Button();
             this.btnCopyDatabaseFile = new System.Windows.Forms.Button();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.btnLeggiDatabase = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.grdDati)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindCaptions)).BeginInit();
             this.SuspendLayout();
@@ -46,9 +50,9 @@
             // btnAbort
             // 
             this.btnAbort.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAbort.Location = new System.Drawing.Point(548, 281);
+            this.btnAbort.Location = new System.Drawing.Point(607, 281);
             this.btnAbort.Name = "btnAbort";
-            this.btnAbort.Size = new System.Drawing.Size(112, 28);
+            this.btnAbort.Size = new System.Drawing.Size(112, 35);
             this.btnAbort.TabIndex = 7;
             this.btnAbort.Text = "Close";
             this.btnAbort.UseVisualStyleBackColor = true;
@@ -57,9 +61,9 @@
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(89, 281);
+            this.btnSave.Location = new System.Drawing.Point(12, 281);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(112, 28);
+            this.btnSave.Size = new System.Drawing.Size(112, 35);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save changes";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -90,7 +94,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdDati.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grdDati.Location = new System.Drawing.Point(89, 2);
+            this.grdDati.Location = new System.Drawing.Point(131, 2);
             this.grdDati.Name = "grdDati";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -100,16 +104,16 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdDati.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.grdDati.Size = new System.Drawing.Size(574, 273);
+            this.grdDati.Size = new System.Drawing.Size(590, 273);
             this.grdDati.TabIndex = 5;
             this.grdDati.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdDati_RowHeaderMouseDoubleClick);
             // 
             // btnNuova
             // 
             this.btnNuova.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNuova.Location = new System.Drawing.Point(242, 281);
+            this.btnNuova.Location = new System.Drawing.Point(131, 281);
             this.btnNuova.Name = "btnNuova";
-            this.btnNuova.Size = new System.Drawing.Size(112, 28);
+            this.btnNuova.Size = new System.Drawing.Size(112, 35);
             this.btnNuova.TabIndex = 8;
             this.btnNuova.Text = "New language";
             this.btnNuova.UseVisualStyleBackColor = true;
@@ -118,20 +122,48 @@
             // btnCopyDatabaseFile
             // 
             this.btnCopyDatabaseFile.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCopyDatabaseFile.Location = new System.Drawing.Point(395, 281);
+            this.btnCopyDatabaseFile.Location = new System.Drawing.Point(369, 281);
             this.btnCopyDatabaseFile.Name = "btnCopyDatabaseFile";
-            this.btnCopyDatabaseFile.Size = new System.Drawing.Size(112, 28);
+            this.btnCopyDatabaseFile.Size = new System.Drawing.Size(112, 35);
             this.btnCopyDatabaseFile.TabIndex = 9;
-            this.btnCopyDatabaseFile.Text = "Copy Database File";
+            this.btnCopyDatabaseFile.Text = "Take Database File";
             this.btnCopyDatabaseFile.UseVisualStyleBackColor = true;
             this.btnCopyDatabaseFile.Click += new System.EventHandler(this.btnCopyDatabaseFile_Click);
+            // 
+            // btnSend
+            // 
+            this.btnSend.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSend.Location = new System.Drawing.Point(488, 281);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(112, 35);
+            this.btnSend.TabIndex = 10;
+            this.btnSend.Text = "Send database file to the author";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
+            // 
+            // btnLeggiDatabase
+            // 
+            this.btnLeggiDatabase.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnLeggiDatabase.Location = new System.Drawing.Point(250, 281);
+            this.btnLeggiDatabase.Name = "btnLeggiDatabase";
+            this.btnLeggiDatabase.Size = new System.Drawing.Size(112, 35);
+            this.btnLeggiDatabase.TabIndex = 11;
+            this.btnLeggiDatabase.Text = "Read Database File";
+            this.btnLeggiDatabase.UseVisualStyleBackColor = true;
+            this.btnLeggiDatabase.Click += new System.EventHandler(this.btnLeggiDatabase_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // frmEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(665, 321);
+            this.ClientSize = new System.Drawing.Size(723, 321);
+            this.Controls.Add(this.btnLeggiDatabase);
+            this.Controls.Add(this.btnSend);
             this.Controls.Add(this.btnCopyDatabaseFile);
             this.Controls.Add(this.btnNuova);
             this.Controls.Add(this.btnAbort);
@@ -154,5 +186,9 @@
         private System.Windows.Forms.BindingSource bindCaptions;
         private System.Windows.Forms.Button btnNuova;
         private System.Windows.Forms.Button btnCopyDatabaseFile;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button btnLeggiDatabase;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

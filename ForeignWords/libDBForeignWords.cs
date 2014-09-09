@@ -16,9 +16,10 @@ namespace gamon.ForeignWords
     /// </summary>
     public class libDBForeignWords
     {
-        //string nomeDatabase = "parole";
-        string nomeDatabase = "dbForeignWords";
+        DbConnection conn;
 
+        string nomeDatabase = "dbForeignWords";
+        string nomeEPathDatabase;
         TipoDB tipoDB;
         public enum TipoDB {
             Access,
@@ -31,6 +32,26 @@ namespace gamon.ForeignWords
         public libDBForeignWords(TipoDB tipoDB)
         {
              this.tipoDB = tipoDB;
+             string pathDati = Application.LocalUserAppDataPath;
+            // toglie la versione dalla path e va nella cartella di ForeginWords
+            pathDati = pathDati.Substring(0, pathDati.LastIndexOf('\\'));
+            pathDati = pathDati.Substring(0, pathDati.LastIndexOf('\\'));
+            pathDati += "\\ForeignWords\\";
+            nomeEPathDatabase = pathDati + nomeDatabase + ".sqlite";
+            // provo ad aprire il file di SQLite, se non ci riesco lo copio dal file campione. 
+            if (!System.IO.File.Exists(nomeEPathDatabase))
+            {   
+                System.IO.File.Copy("dbForeignWords_Standard.sqlite", nomeEPathDatabase, true);
+            }
+        }
+        #endregion
+
+        #region proprietà
+
+        public string NomeEPathDatabase
+        {
+            get { return nomeEPathDatabase; }
+            //set { nomeEPathDatabase = value; }
         }
         #endregion
 
@@ -193,20 +214,13 @@ namespace gamon.ForeignWords
         public DbConnection Connetti()
         {
             //gamonLib.Qui("Inizio metodo Connetti per database "  + database );
-            DbConnection conn;
             try
             {
                 switch (tipoDB)
                 {
                     case TipoDB.SQLite:
                         {
-                            //string pathDati = Application.LocalUserAppDataPath;
-                            // toglie la versione dalla path e va nella cartella di ForeginWords
-                            //pathDati = pathDati.Substring(0, pathDati.LastIndexOf('\\'));
-                            //pathDati = pathDati.Substring(0, pathDati.LastIndexOf('\\'));
-                            //pathDati += "\\ForeignWords\\";
-                            string pathDati = ".\\";
-                            conn = new SQLiteConnection("Data Source=" + pathDati + nomeDatabase + ".sqlite");
+                            conn = new SQLiteConnection("Data Source=" + nomeEPathDatabase);
                             break;
                         }
                     case TipoDB.Access:
@@ -234,6 +248,11 @@ namespace gamon.ForeignWords
             //gamonLib.Qui("Fine metodo Connetti()");
             conn.Open();
             return conn;
+        }
+
+        public void Disconnetti()
+        {
+            if (conn.State == ConnectionState.Open) conn.Close();
         }
         //dAdapter = new SQLiteDataAdapter("SELECT * FROM VerbiInglesi;",
         //                                    (System.Data.SQLite.SQLiteConnection)conn);
@@ -403,15 +422,6 @@ namespace gamon.ForeignWords
         {
             DbConnection conn = Connetti();
             // verbi della tabella VerbiInglesi che non sono inclusi nell'esercizio il cui codice viene passato
-
-            //TODO la prossima mi piacerebbe che funzionasse (una sola query invece di due)!
-            //dAdapter = new SQLiteDataAdapter("SELECT VerbiInglesi.* FROM VerbiInglesi " + 
-            //                                    "LEFT JOIN VerbiEsercizi " +
-            //                                    "ON (VerbiInglesi.IdVerbo = VerbiEsercizi.IdVerbo " +
-            //                                        "AND VerbiEsercizi.IdEsercizio = " + CodEsercizio + ") "+
-            //                                    "WHERE VerbiEsercizi.IdVerbo = NULL;",
-            //                                                (System.Data.SQLite.SQLiteConnection)conn);
-
             dAdapter = new SQLiteDataAdapter("SELECT * " + 
                                              "FROM VerbiInglesi" +
                                              " WHERE IdVerbo NOT IN" +
@@ -549,14 +559,17 @@ namespace gamon.ForeignWords
         {
             DbConnection conn = Connetti();
             DbCommand cmd = conn.CreateCommand();
-            // TODO mettere automaticamente le caption di default
             // aggiunta della riga del linguaggio alla tabella delle caption
             cmd.CommandText = "INSERT INTO languages (language) VALUES  ('" + newLanguage + "');";
             cmd.ExecuteNonQuery();
 
+            // TODO mettere automaticamente le caption di default
+
             // aggiunta della colonna alla tabella VerbiInglesi
             cmd.CommandText = "ALTER TABLE VerbiInglesi ADD COLUMN Inf" + newLanguage + " TEXT;";
             cmd.ExecuteNonQuery();
+
+            System.IO.File.Copy("Help_English.txt", "Help_" + newLanguage + ".txt", true);
         }
     }
 }

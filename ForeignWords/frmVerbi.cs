@@ -32,7 +32,7 @@ namespace gamon.ForeignWords
 
         DateTime istanteInizioEsercizio;
         DateTime istanteInizioDomanda;
-        double tMaxRisposta = 60, tInizioPenalitàRisposta = 15; 
+        static double tMaxRisposta = 60, tInizioPenalitàRisposta = tMaxRisposta/4; 
         double punteggioDomanda;
         double punteggioTotale;
 
@@ -55,6 +55,33 @@ namespace gamon.ForeignWords
 
             Global.caricaLinguaInControlli(this);
             Global.caricaLinguaInMenu(menuStrip1);
+            // controlla che il database locale non sia più vecchio del database standard
+            if (System.IO.File.GetLastWriteTimeUtc(Global.LibDB.NomeEPathDatabase) < System.IO.File.GetLastWriteTimeUtc("dbForeignWords_Standard.sqlite"))
+            {   // data del file standard più recente di quella del file dell'utente
+                if (MessageBox.Show(Global.Captions["messFilePiuRecente"].ToString(),
+                        "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    string nomeDatabase = Global.LibDB.NomeEPathDatabase;
+                    string nomeBackup = Global.LibDB.NomeEPathDatabase.Replace("dbForeignWords", "dbForeignWords_" + DateTime.Now.ToString("yyyy.MM.dd"));
+
+                    // copia la vecchia versione con la data, per backup di emergenza
+                    System.IO.File.Copy(nomeDatabase, nomeBackup, true);
+
+                    // copia la nuova versione sulla vecchia
+                    System.IO.File.Copy("dbForeignWords_Standard.sqlite", Global.LibDB.NomeEPathDatabase, true);
+
+                    if (MessageBox.Show(Global.Captions["messVuoiBackup"].ToString(),
+                        "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        saveFileDialog.Title = "";
+                        saveFileDialog.FileName = "ForeignWords_" + DateTime.Now.ToString("yyyy.MM.dd") + ".sqlite";
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            System.IO.File.Copy(Global.LibDB.NomeEPathDatabase, saveFileDialog.FileName, true);
+                        }
+                    }
+                }
+            }
             // alla partenza del programma legge l'esercizio di default nell'array dei verbi
             verbi = leggiVerbiDaDB(codEsercizioCorrente);
         }
@@ -98,25 +125,21 @@ namespace gamon.ForeignWords
 
         private void btnVerbo_Click(object sender, EventArgs e)
         {
-            txtInfinito.Text = "";
-            txtInfinito.BackColor = Color.White;
-            txtInfinito.ForeColor = Color.Black;
-            txtPassato.Text = "";
-            txtPassato.BackColor = Color.White;
-            txtPassato.ForeColor = Color.Black;
-            txtParticipio.Text = "";
-            txtParticipio.BackColor = Color.White;
-            txtParticipio.ForeColor = Color.Black;
-            txtItaliano.Text = "";
-            txtItaliano.BackColor = Color.White;
-            txtItaliano.ForeColor = Color.Black;
-
-            txtInfinitoGiusto.Text = "";
-            txtPassatoGiusto.Text = "";
-            txtParticipioGiusto.Text = "";
-            txtItalianoGiusto.Text = "";
-
+            nuovaDomanda();
             istanteInizioDomanda = DateTime.Now;
+
+            int temp = domandaCorrente + 1;
+            displayDomanda.Text = temp.ToString();
+
+            btnCorreggi.Visible = true;
+            btnVerbo.Visible = false;
+
+            domandaFinita = false;
+        }
+
+        private void nuovaDomanda()
+        {
+            imbiancaTextBox(); 
             int nEstraibili;
             if (Global.LinguaCorrente != "English")
             {
@@ -129,27 +152,30 @@ namespace gamon.ForeignWords
             switch (randomSeq.Next(nEstraibili))
             {
                 case 0:
-                    txtInfinito.Text = verbi[domandaCorrente].Infinito ;
+                    txtInfinito.Text = verbi[domandaCorrente].Infinito;
+                    txtInfinito.ReadOnly = true;
+                    txtInfinito.TabStop = false;
+                    txtPassato.Focus();
                     break;
                 case 1:
                     txtPassato.Text = verbi[domandaCorrente].Passato;
+                    txtPassato.ReadOnly = true;
+                    txtPassato.TabStop = false;
+                    txtInfinito.Focus();
                     break;
                 case 2:
                     txtParticipio.Text = verbi[domandaCorrente].ParticipioPassato;
+                    txtParticipio.ReadOnly = true;
+                    txtParticipio.TabStop = false;
+                    txtInfinito.Focus();
                     break;
                 case 3:
                     txtItaliano.Text = verbi[domandaCorrente].InfinitoInLingua;
+                    txtItaliano.ReadOnly = true;
+                    txtItaliano.TabStop = false;
+                    txtInfinito.Focus();
                     break;
             }
-            int temp = domandaCorrente + 1;
-            displayDomanda.Text = temp.ToString();
-
-            btnCorreggi.Visible = true;
-            btnVerbo.Visible = false;
-
-            txtInfinito.Focus();
-
-            domandaFinita = false;
         }
 
         private void btnCorreggi_Click(object sender, EventArgs e)
@@ -214,6 +240,9 @@ namespace gamon.ForeignWords
             // assegnazione del punteggio
             double tempo = (DateTime.Now.Ticks - istanteInizioDomanda.Ticks) / 1E7;
             giuste--; // una giusta c'è sempre: quella che dà lui!
+            // se è Inglese c'è una domanda in meno (la traduzione)
+            if (Global.LinguaCorrente == "English")
+                giuste--; 
             giuste *= 20; // 20 punti per ogni domanda giusta
             punteggioDomanda = giuste;
             if (punteggioDomanda == 60)
@@ -233,7 +262,7 @@ namespace gamon.ForeignWords
             punteggioTotale += punteggioDomanda;
             lblDisplayPunteggioDomanda.Text = punteggioDomanda.ToString("0");
             lblDisplayPunteggioTotale.Text = punteggioTotale.ToString("0");
-
+            
             btnCorreggi.Visible = false;
             btnVerbo.Visible = true;
 
@@ -247,6 +276,7 @@ namespace gamon.ForeignWords
                 MessageBox.Show(Global.Captions["messFineEsercizio"].ToString()); 
                 finisciEsercizio();
             }
+            btnVerbo.Focus();
         }
 
         private void Verbi_KeyPress(object sender, KeyPressEventArgs e)
@@ -434,8 +464,9 @@ namespace gamon.ForeignWords
             txtCodice.Text = codEsercizioCorrente.ToString();
             verbi = leggiVerbiDaDB(codEsercizioCorrente);  // il codice 1 c'è già nel database: è l'esercizio con tutti i verbi
 
-            displayNDomande.Text = verbi.Length.ToString();
             txtEsercizio.Text = esercizioCorrente;
+            displayNDomande.Text = verbi.Length.ToString();
+            txtTempoTotale.Text = ((int)verbi.Length * (tMaxRisposta/2) / 60).ToString(); 
         }
 
         private void verbiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -649,6 +680,25 @@ namespace gamon.ForeignWords
             pbarDopo.Value = pbarDopo.Minimum;
             pbarPrima.Value = pbarPrima.Minimum;
             pbarTotale.Value = pbarTotale.Maximum;
+
+            txtInfinito.ReadOnly = false;
+            txtItaliano.ReadOnly = false;
+            txtParticipio.ReadOnly = false;
+            txtPassato.ReadOnly = false;
+
+            txtInfinito.TabStop = true;
+            txtItaliano.TabStop = true;
+            txtParticipio.TabStop = true;
+            txtPassato.TabStop = true;
+
+            txtInfinito.Text = "";
+            txtItaliano.Text = "";
+            txtParticipio.Text = "";
+            txtPassato.Text = "";
+            txtInfinitoGiusto.Text = "";
+            txtPassatoGiusto.Text = "";
+            txtParticipioGiusto.Text = "";
+            txtItalianoGiusto.Text = "";
         }
 
         private void btnEsercizio_Click(object sender, EventArgs e)
@@ -665,12 +715,26 @@ namespace gamon.ForeignWords
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("help.txt");
+            try 
+            {
+                System.Diagnostics.Process.Start("help.txt");
+            }
+            catch
+            {
+                MessageBox.Show("Couldn't open file 'help.txt'.");
+            }
         }
 
         private void mnuToDo_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("ToDo list and known issues.txt");
+            try
+            {
+                System.Diagnostics.Process.Start("ToDo list and known issues.txt");
+            }
+            catch
+            {
+                MessageBox.Show("Couldn't open file 'ToDo list and known issues.txt'.");
+            }
         }
         #region gestione menù linguaggi
 
@@ -705,6 +769,9 @@ namespace gamon.ForeignWords
             Global.caricaLinguaInMenu(menuStrip1);
             verbi = leggiVerbiDaDB(codEsercizioCorrente);
             nascondiInfinito();
+            foreach (ToolStripMenuItem m in mnuLanguage.DropDownItems)
+            { m.Checked = false; }
+            men.Checked = true;
         }
         #endregion
 
@@ -722,6 +789,12 @@ namespace gamon.ForeignWords
                 txtItaliano.Visible = true;
                 txtItalianoGiusto.Visible = true;
             }
+        }
+
+        private void frmVerbi_Load(object sender, EventArgs e)
+        {
+            displayNDomande.Text = verbi.Length.ToString();
+            txtTempoTotale.Text = ((int)verbi.Length * (tMaxRisposta/2) / 60).ToString(); 
         }
     }
 }

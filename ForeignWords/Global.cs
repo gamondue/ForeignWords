@@ -10,22 +10,33 @@ namespace gamon.ForeignWords
     {
         private static string linguaCorrente;
 
-        public static int nLingue;
-        public static ArrayList Lingue;
+        private static ArrayList lingue;
         public static Hashtable Captions;
 
         public static libDBForeignWords LibDB = new libDBForeignWords(libDBForeignWords.TipoDB.SQLite);
         //public libDBParoleInglesi LibDB = new libDBParoleInglesi(libDBParoleInglesi.TipoDB.Access);
 
+        #region proprietà
         public static string LinguaCorrente
         {
           get { return Global.linguaCorrente; }
           set { 
               Global.linguaCorrente = value;
-              Lingue = LibDB.LinguePresenti();
+              lingue = LibDB.LinguePresenti();
               Captions = LibDB.Prompts(Global.LinguaCorrente);
           }
         }
+
+        public static ArrayList Lingue
+        {
+            get { 
+                lingue = LibDB.LinguePresenti();
+                return lingue;
+            }
+            //set { Global.lingue = value; }
+        }
+
+        #endregion
 
         public static void caricaLinguaInControlli(Form form)
         {
