@@ -105,13 +105,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="gamon LegoLogo decentrato trasparente 256x256.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ForeignWords\ForeignWords.csproj">
       <Project>{2DBA9E7C-6CBB-44FD-8674-EE6F85B705F6}</Project>
       <Name>ForeignWords</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="gamon LegoLogo decentrato trasparente 256x256.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

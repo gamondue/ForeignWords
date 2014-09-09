@@ -57,8 +57,9 @@ namespace gamon.ForeignWords
             this.mnuCurrentExercise = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRandomize = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuLanguage = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuQuestionMark = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuToDo = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblDisplayPunteggioDomanda = new System.Windows.Forms.Label();
@@ -75,7 +76,7 @@ namespace gamon.ForeignWords
             this.lblNDomande = new System.Windows.Forms.Label();
             this.displayNDomande = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.txtEsercizio = new System.Windows.Forms.TextBox();
             this.txtCodice = new System.Windows.Forms.TextBox();
             this.txtTempoTotale = new System.Windows.Forms.TextBox();
@@ -123,7 +124,7 @@ namespace gamon.ForeignWords
             this.txtPassato.Location = new System.Drawing.Point(74, 243);
             this.txtPassato.Name = "txtPassato";
             this.txtPassato.Size = new System.Drawing.Size(232, 31);
-            this.txtPassato.TabIndex = 3;
+            this.txtPassato.TabIndex = 1;
             // 
             // lblParticipioPassato
             // 
@@ -142,7 +143,7 @@ namespace gamon.ForeignWords
             this.txtParticipio.Location = new System.Drawing.Point(74, 325);
             this.txtParticipio.Name = "txtParticipio";
             this.txtParticipio.Size = new System.Drawing.Size(232, 31);
-            this.txtParticipio.TabIndex = 5;
+            this.txtParticipio.TabIndex = 2;
             // 
             // lblInfinitoItaliano
             // 
@@ -162,7 +163,7 @@ namespace gamon.ForeignWords
             this.txtItaliano.Multiline = true;
             this.txtItaliano.Name = "txtItaliano";
             this.txtItaliano.Size = new System.Drawing.Size(232, 69);
-            this.txtItaliano.TabIndex = 7;
+            this.txtItaliano.TabIndex = 3;
             // 
             // btnVerbo
             // 
@@ -170,7 +171,7 @@ namespace gamon.ForeignWords
             this.btnVerbo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerbo.Location = new System.Drawing.Point(74, 495);
             this.btnVerbo.Name = "btnVerbo";
-            this.btnVerbo.Size = new System.Drawing.Size(181, 43);
+            this.btnVerbo.Size = new System.Drawing.Size(231, 43);
             this.btnVerbo.TabIndex = 9;
             this.btnVerbo.Text = "Nuovo Verbo";
             this.btnVerbo.UseVisualStyleBackColor = true;
@@ -193,6 +194,7 @@ namespace gamon.ForeignWords
             this.txtItalianoGiusto.Location = new System.Drawing.Point(400, 410);
             this.txtItalianoGiusto.Multiline = true;
             this.txtItalianoGiusto.Name = "txtItalianoGiusto";
+            this.txtItalianoGiusto.ReadOnly = true;
             this.txtItalianoGiusto.Size = new System.Drawing.Size(232, 69);
             this.txtItalianoGiusto.TabIndex = 14;
             this.txtItalianoGiusto.TabStop = false;
@@ -203,6 +205,7 @@ namespace gamon.ForeignWords
             this.txtParticipioGiusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtParticipioGiusto.Location = new System.Drawing.Point(400, 324);
             this.txtParticipioGiusto.Name = "txtParticipioGiusto";
+            this.txtParticipioGiusto.ReadOnly = true;
             this.txtParticipioGiusto.Size = new System.Drawing.Size(232, 31);
             this.txtParticipioGiusto.TabIndex = 13;
             this.txtParticipioGiusto.TabStop = false;
@@ -213,6 +216,7 @@ namespace gamon.ForeignWords
             this.txtPassatoGiusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassatoGiusto.Location = new System.Drawing.Point(400, 242);
             this.txtPassatoGiusto.Name = "txtPassatoGiusto";
+            this.txtPassatoGiusto.ReadOnly = true;
             this.txtPassatoGiusto.Size = new System.Drawing.Size(232, 31);
             this.txtPassatoGiusto.TabIndex = 12;
             this.txtPassatoGiusto.TabStop = false;
@@ -223,7 +227,7 @@ namespace gamon.ForeignWords
             this.btnCorreggi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCorreggi.Location = new System.Drawing.Point(400, 495);
             this.btnCorreggi.Name = "btnCorreggi";
-            this.btnCorreggi.Size = new System.Drawing.Size(181, 43);
+            this.btnCorreggi.Size = new System.Drawing.Size(230, 43);
             this.btnCorreggi.TabIndex = 15;
             this.btnCorreggi.Text = "Correggi";
             this.btnCorreggi.UseVisualStyleBackColor = true;
@@ -236,6 +240,7 @@ namespace gamon.ForeignWords
             this.txtInfinitoGiusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfinitoGiusto.Location = new System.Drawing.Point(400, 166);
             this.txtInfinitoGiusto.Name = "txtInfinitoGiusto";
+            this.txtInfinitoGiusto.ReadOnly = true;
             this.txtInfinitoGiusto.Size = new System.Drawing.Size(232, 31);
             this.txtInfinitoGiusto.TabIndex = 11;
             this.txtInfinitoGiusto.TabStop = false;
@@ -269,7 +274,7 @@ namespace gamon.ForeignWords
             this.mnuModify,
             this.mnuRandomize,
             this.mnuLanguage,
-            this.mnuHelp});
+            this.mnuQuestionMark});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(645, 24);
@@ -341,36 +346,38 @@ namespace gamon.ForeignWords
             this.mnuLanguage.Size = new System.Drawing.Size(55, 20);
             this.mnuLanguage.Text = "Lingua";
             // 
+            // mnuQuestionMark
+            // 
+            this.mnuQuestionMark.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuHelp,
+            this.mnuAbout});
+            this.mnuQuestionMark.Name = "mnuQuestionMark";
+            this.mnuQuestionMark.Size = new System.Drawing.Size(24, 20);
+            this.mnuQuestionMark.Text = "?";
+            // 
             // mnuHelp
             // 
-            this.mnuHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.helpToolStripMenuItem,
-            this.mnuToDo,
-            this.aboutToolStripMenuItem});
             this.mnuHelp.Name = "mnuHelp";
-            this.mnuHelp.Size = new System.Drawing.Size(44, 20);
+            this.mnuHelp.Size = new System.Drawing.Size(107, 22);
             this.mnuHelp.Text = "Help";
             // 
-            // helpToolStripMenuItem
+            // mnuAbout
             // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            this.mnuAbout.Name = "mnuAbout";
+            this.mnuAbout.Size = new System.Drawing.Size(107, 22);
+            this.mnuAbout.Text = "About";
             // 
             // mnuToDo
             // 
             this.mnuToDo.Name = "mnuToDo";
-            this.mnuToDo.Size = new System.Drawing.Size(244, 22);
+            this.mnuToDo.Size = new System.Drawing.Size(293, 24);
             this.mnuToDo.Text = "Cose da fare ed errori conosciuti";
             this.mnuToDo.Click += new System.EventHandler(this.mnuToDo_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(244, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // lblDisplayPunteggioDomanda
             // 
@@ -379,7 +386,7 @@ namespace gamon.ForeignWords
             this.lblDisplayPunteggioDomanda.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDisplayPunteggioDomanda.Location = new System.Drawing.Point(95, 607);
             this.lblDisplayPunteggioDomanda.Name = "lblDisplayPunteggioDomanda";
-            this.lblDisplayPunteggioDomanda.Size = new System.Drawing.Size(181, 46);
+            this.lblDisplayPunteggioDomanda.Size = new System.Drawing.Size(210, 46);
             this.lblDisplayPunteggioDomanda.TabIndex = 19;
             this.lblDisplayPunteggioDomanda.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -388,9 +395,9 @@ namespace gamon.ForeignWords
             this.lblDisplayPunteggioTotale.BackColor = System.Drawing.Color.White;
             this.lblDisplayPunteggioTotale.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDisplayPunteggioTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisplayPunteggioTotale.Location = new System.Drawing.Point(404, 607);
+            this.lblDisplayPunteggioTotale.Location = new System.Drawing.Point(400, 607);
             this.lblDisplayPunteggioTotale.Name = "lblDisplayPunteggioTotale";
-            this.lblDisplayPunteggioTotale.Size = new System.Drawing.Size(181, 46);
+            this.lblDisplayPunteggioTotale.Size = new System.Drawing.Size(231, 46);
             this.lblDisplayPunteggioTotale.TabIndex = 20;
             this.lblDisplayPunteggioTotale.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -398,7 +405,7 @@ namespace gamon.ForeignWords
             // 
             this.lblPunteggioDomanda.AutoSize = true;
             this.lblPunteggioDomanda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPunteggioDomanda.Location = new System.Drawing.Point(87, 581);
+            this.lblPunteggioDomanda.Location = new System.Drawing.Point(95, 581);
             this.lblPunteggioDomanda.Name = "lblPunteggioDomanda";
             this.lblPunteggioDomanda.Size = new System.Drawing.Size(221, 25);
             this.lblPunteggioDomanda.TabIndex = 22;
@@ -408,7 +415,7 @@ namespace gamon.ForeignWords
             // 
             this.lblPunteggioTotale.AutoSize = true;
             this.lblPunteggioTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPunteggioTotale.Location = new System.Drawing.Point(399, 581);
+            this.lblPunteggioTotale.Location = new System.Drawing.Point(400, 581);
             this.lblPunteggioTotale.Name = "lblPunteggioTotale";
             this.lblPunteggioTotale.Size = new System.Drawing.Size(184, 25);
             this.lblPunteggioTotale.TabIndex = 23;
@@ -417,7 +424,7 @@ namespace gamon.ForeignWords
             // pbarPrima
             // 
             this.pbarPrima.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.pbarPrima.Location = new System.Drawing.Point(74, 554);
+            this.pbarPrima.Location = new System.Drawing.Point(74, 561);
             this.pbarPrima.Name = "pbarPrima";
             this.pbarPrima.Size = new System.Drawing.Size(231, 18);
             this.pbarPrima.TabIndex = 24;
@@ -426,7 +433,7 @@ namespace gamon.ForeignWords
             // pbarDopo
             // 
             this.pbarDopo.ForeColor = System.Drawing.Color.Red;
-            this.pbarDopo.Location = new System.Drawing.Point(401, 554);
+            this.pbarDopo.Location = new System.Drawing.Point(399, 558);
             this.pbarDopo.Name = "pbarDopo";
             this.pbarDopo.Size = new System.Drawing.Size(231, 18);
             this.pbarDopo.TabIndex = 25;
@@ -442,9 +449,9 @@ namespace gamon.ForeignWords
             this.displayDomanda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.displayDomanda.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayDomanda.ForeColor = System.Drawing.Color.White;
-            this.displayDomanda.Location = new System.Drawing.Point(317, 607);
+            this.displayDomanda.Location = new System.Drawing.Point(330, 607);
             this.displayDomanda.Name = "displayDomanda";
-            this.displayDomanda.Size = new System.Drawing.Size(81, 46);
+            this.displayDomanda.Size = new System.Drawing.Size(68, 46);
             this.displayDomanda.TabIndex = 26;
             this.displayDomanda.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -471,7 +478,7 @@ namespace gamon.ForeignWords
             // lblDomanda
             // 
             this.lblDomanda.AutoSize = true;
-            this.lblDomanda.Location = new System.Drawing.Point(314, 590);
+            this.lblDomanda.Location = new System.Drawing.Point(330, 590);
             this.lblDomanda.Name = "lblDomanda";
             this.lblDomanda.Size = new System.Drawing.Size(53, 13);
             this.lblDomanda.TabIndex = 29;
@@ -480,7 +487,7 @@ namespace gamon.ForeignWords
             // lblNDomande
             // 
             this.lblNDomande.AutoSize = true;
-            this.lblNDomande.Location = new System.Drawing.Point(7, 590);
+            this.lblNDomande.Location = new System.Drawing.Point(25, 590);
             this.lblNDomande.Name = "lblNDomande";
             this.lblNDomande.Size = new System.Drawing.Size(62, 13);
             this.lblNDomande.TabIndex = 31;
@@ -492,9 +499,9 @@ namespace gamon.ForeignWords
             this.displayNDomande.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.displayNDomande.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayNDomande.ForeColor = System.Drawing.Color.White;
-            this.displayNDomande.Location = new System.Drawing.Point(8, 607);
+            this.displayNDomande.Location = new System.Drawing.Point(26, 607);
             this.displayNDomande.Name = "displayNDomande";
-            this.displayNDomande.Size = new System.Drawing.Size(81, 46);
+            this.displayNDomande.Size = new System.Drawing.Size(68, 46);
             this.displayNDomande.TabIndex = 30;
             this.displayNDomande.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -506,38 +513,45 @@ namespace gamon.ForeignWords
             // 
             this.txtEsercizio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEsercizio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEsercizio.Location = new System.Drawing.Point(84, 42);
             this.txtEsercizio.Multiline = true;
             this.txtEsercizio.Name = "txtEsercizio";
             this.txtEsercizio.ReadOnly = true;
-            this.txtEsercizio.Size = new System.Drawing.Size(399, 20);
+            this.txtEsercizio.Size = new System.Drawing.Size(361, 25);
             this.txtEsercizio.TabIndex = 32;
+            this.txtEsercizio.TabStop = false;
             // 
             // txtCodice
             // 
+            this.txtCodice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodice.Location = new System.Drawing.Point(20, 42);
             this.txtCodice.Name = "txtCodice";
             this.txtCodice.ReadOnly = true;
-            this.txtCodice.Size = new System.Drawing.Size(52, 20);
+            this.txtCodice.Size = new System.Drawing.Size(52, 26);
             this.txtCodice.TabIndex = 33;
+            this.txtCodice.TabStop = false;
             // 
             // txtTempoTotale
             // 
             this.txtTempoTotale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTempoTotale.Location = new System.Drawing.Point(564, 42);
+            this.txtTempoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTempoTotale.Location = new System.Drawing.Point(572, 42);
             this.txtTempoTotale.Name = "txtTempoTotale";
-            this.txtTempoTotale.Size = new System.Drawing.Size(49, 20);
+            this.txtTempoTotale.Size = new System.Drawing.Size(59, 37);
             this.txtTempoTotale.TabIndex = 37;
+            this.txtTempoTotale.TabStop = false;
             this.txtTempoTotale.Text = "1000";
             this.txtTempoTotale.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblTempoTotale
             // 
             this.lblTempoTotale.AutoSize = true;
-            this.lblTempoTotale.Location = new System.Drawing.Point(489, 45);
+            this.lblTempoTotale.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTempoTotale.Location = new System.Drawing.Point(446, 42);
             this.lblTempoTotale.Name = "lblTempoTotale";
-            this.lblTempoTotale.Size = new System.Drawing.Size(69, 13);
+            this.lblTempoTotale.Size = new System.Drawing.Size(120, 24);
             this.lblTempoTotale.TabIndex = 38;
             this.lblTempoTotale.Text = "Tempo totale";
             this.lblTempoTotale.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -545,7 +559,7 @@ namespace gamon.ForeignWords
             // btnEsercizio
             // 
             this.btnEsercizio.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEsercizio.Location = new System.Drawing.Point(461, 79);
+            this.btnEsercizio.Location = new System.Drawing.Point(450, 80);
             this.btnEsercizio.Name = "btnEsercizio";
             this.btnEsercizio.Size = new System.Drawing.Size(181, 43);
             this.btnEsercizio.TabIndex = 41;
@@ -556,9 +570,10 @@ namespace gamon.ForeignWords
             // lblTempoRimasto
             // 
             this.lblTempoRimasto.AutoSize = true;
-            this.lblTempoRimasto.Location = new System.Drawing.Point(17, 91);
+            this.lblTempoRimasto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTempoRimasto.Location = new System.Drawing.Point(16, 80);
             this.lblTempoRimasto.Name = "lblTempoRimasto";
-            this.lblTempoRimasto.Size = new System.Drawing.Size(76, 13);
+            this.lblTempoRimasto.Size = new System.Drawing.Size(114, 20);
             this.lblTempoRimasto.TabIndex = 40;
             this.lblTempoRimasto.Text = "Tempo rimasto";
             // 
@@ -567,13 +582,13 @@ namespace gamon.ForeignWords
             this.pbarTotale.BackColor = System.Drawing.Color.Red;
             this.pbarTotale.Location = new System.Drawing.Point(20, 104);
             this.pbarTotale.Name = "pbarTotale";
-            this.pbarTotale.Size = new System.Drawing.Size(435, 18);
+            this.pbarTotale.Size = new System.Drawing.Size(424, 18);
             this.pbarTotale.TabIndex = 39;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(619, 45);
+            this.label13.Location = new System.Drawing.Point(546, 65);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(23, 13);
             this.label13.TabIndex = 42;
@@ -584,7 +599,7 @@ namespace gamon.ForeignWords
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(645, 661);
+            this.ClientSize = new System.Drawing.Size(645, 659);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnEsercizio);
             this.Controls.Add(this.lblTempoRimasto);
@@ -629,6 +644,7 @@ namespace gamon.ForeignWords
             this.Name = "frmVerbi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verbi";
+            this.Load += new System.EventHandler(this.frmVerbi_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Verbi_KeyPress);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -657,7 +673,6 @@ namespace gamon.ForeignWords
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem mnuHelp;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Label lblDisplayPunteggioDomanda;
         private System.Windows.Forms.Label lblDisplayPunteggioTotale;
@@ -679,7 +694,7 @@ namespace gamon.ForeignWords
         private System.Windows.Forms.ToolStripMenuItem mnuExportExercise;
         private System.Windows.Forms.ToolStripMenuItem mnuExportWithName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.TextBox txtEsercizio;
         private System.Windows.Forms.ToolStripMenuItem mnuVerbs;
         private System.Windows.Forms.ToolStripMenuItem mnuCurrentExercise;
@@ -692,7 +707,10 @@ namespace gamon.ForeignWords
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ToolStripMenuItem mnuLanguage;
         private System.Windows.Forms.ToolStripMenuItem mnuToDo;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuItemHelp;
+        private System.Windows.Forms.ToolStripMenuItem mnuQuestionMark;
+        private System.Windows.Forms.ToolStripMenuItem mnuHelp;
+        private System.Windows.Forms.ToolStripMenuItem mnuAbout;
     }
 }
 

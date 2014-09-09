@@ -1,3 +1,5 @@
 /ForeignWords.pdb
 /ForeignWords.vshost.exe.manifest
 *.Data.SQLite.dll.TEMP
+*.exe.config
+*.exe

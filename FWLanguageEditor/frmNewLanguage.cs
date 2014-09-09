@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+//using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -15,6 +15,12 @@ namespace gamon.ForeignWords
         {
             InitializeComponent();
             txtNewLanguage.Text = NewLanguage; 
+        }
+
+        public frmNewLanguage()
+        {
+            // TODO: Complete member initialization
+            // CONTROLLARE SE SERVE
         }
 
         private void btnOK_Click(object sender, EventArgs e)

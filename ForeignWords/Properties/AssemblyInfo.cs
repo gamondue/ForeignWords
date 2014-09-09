@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ForeignWords")]
 [assembly: AssemblyDescription("Let's learn English verbs")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("gamon")]
+[assembly: AssemblyCompany("Ing. Gabriele MONTI")]
 [assembly: AssemblyProduct("ForeignWords")]
-[assembly: AssemblyCopyright("Copyright © - 2008-'10 - Ing. Gabriele MONTI, Forlì, ITALIA")]
+[assembly: AssemblyCopyright("Copyright © - 2008-'14 - Ing. Gabriele MONTI, Forlì, ITALIA")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

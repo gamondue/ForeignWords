@@ -33,7 +33,8 @@ namespace gamon.ForeignWords
 
             if (CodEsercizio == 1)
             {
-                MessageBox.Show("L'esercizio di codice 1 contiene tutti i verbi. Non si può modificare!");
+                MessageBox.Show(Global.Captions["messEsercizio1"].ToString());
+                //MessageBox.Show("L'esercizio di codice 1 contiene tutti i verbi. Non si può modificare!");
                 return;
             }
 

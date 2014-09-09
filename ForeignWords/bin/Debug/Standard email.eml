@@ -1,0 +1,24 @@
+To: gamon@ingmonti.it
+Subject: Database transmission
+Content-Type: multipart/mixed;
+ boundary="------------050909080605080808010201"
+
+ This is a multi-part message in MIME format.
+--------------050909080605080808010201
+Content-Type: text/plain; charset=ISO-8859-15; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Find here enclosed the ForeignWords file I modified
+
+#DateAndTime# #username#
+--------------050909080605080808010201
+Content-Type: application/octet-stream;
+ name="#Name of File#.sqlite"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="#Name of File#.sqlite"
+
+#HERE THE FILE#
+--------------050909080605080808010201--
+
+
