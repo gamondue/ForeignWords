@@ -1,11 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForeignWords", "ForeignWords\ForeignWords.csproj", "{2DBA9E7C-6CBB-44FD-8674-EE6F85B705F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FWLanguageEditor", "FWLanguageEditor\FWLanguageEditor.csproj", "{87A5C6BC-3C94-4F9F-8C55-6A2485F794CA}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupForeignWords", "SetupForeignWords\SetupForeignWords.vdproj", "{022F4B51-B7E7-4249-8E90-DA7DA4D17177}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,12 +37,6 @@ Global
 		{87A5C6BC-3C94-4F9F-8C55-6A2485F794CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{87A5C6BC-3C94-4F9F-8C55-6A2485F794CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{87A5C6BC-3C94-4F9F-8C55-6A2485F794CA}.Release|Win32.ActiveCfg = Release|Any CPU
-		{022F4B51-B7E7-4249-8E90-DA7DA4D17177}.Debug|Any CPU.ActiveCfg = Debug
-		{022F4B51-B7E7-4249-8E90-DA7DA4D17177}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{022F4B51-B7E7-4249-8E90-DA7DA4D17177}.Debug|Win32.ActiveCfg = Debug
-		{022F4B51-B7E7-4249-8E90-DA7DA4D17177}.Release|Any CPU.ActiveCfg = Release
-		{022F4B51-B7E7-4249-8E90-DA7DA4D17177}.Release|Mixed Platforms.ActiveCfg = Release
-		{022F4B51-B7E7-4249-8E90-DA7DA4D17177}.Release|Win32.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

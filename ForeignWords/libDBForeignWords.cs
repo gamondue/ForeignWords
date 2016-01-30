@@ -33,7 +33,7 @@ namespace gamon.ForeignWords
         {
              this.tipoDB = tipoDB;
              string pathDati = Application.LocalUserAppDataPath;
-            // toglie la versione dalla path e va nella cartella di ForeginWords
+            // toglie la versione dalla path e va nella cartella di ForeignWords
             pathDati = pathDati.Substring(0, pathDati.LastIndexOf('\\'));
             pathDati = pathDati.Substring(0, pathDati.LastIndexOf('\\'));
             pathDati += "\\ForeignWords\\";
