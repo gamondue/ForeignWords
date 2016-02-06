@@ -6,9 +6,10 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using gamon;
-using System.Data.Common; 
+using System.Data.Common;
 using System.Collections;
-using System.Globalization; 
+using System.Globalization;
+using System.Diagnostics;
 
 namespace gamon.ForeignWords
 {
@@ -39,6 +40,19 @@ namespace gamon.ForeignWords
 
         public frmVerbi()
         {
+            if (PriorProcess() != null)
+            {
+                if (System.Windows.Forms.Application.MessageLoop)
+                {
+                    // WinForms app
+                    System.Windows.Forms.Application.Exit();
+                }
+                else
+                {
+                    // Console app
+                    System.Environment.Exit(1);
+                }
+            }
             InitializeComponent();
 
             // inizializzazioni per tutta l'applicazione
@@ -821,5 +835,22 @@ namespace gamon.ForeignWords
         {
             MessageBox.Show("To do!");
         }
-     }
+
+        public static Process PriorProcess()
+        // Returns a System.Diagnostics.Process pointing to
+        // a pre-existing process with the same name as the
+        // current one, if any; or null if the current process
+        // is unique.
+        {
+            Process curr = Process.GetCurrentProcess();
+            Process[] procs = Process.GetProcessesByName(curr.ProcessName);
+            foreach (Process p in procs)
+            {
+                if ((p.Id != curr.Id) &&
+                    (p.MainModule.FileName == curr.MainModule.FileName))
+                    return p;
+            }
+            return null;
+        }
+    }
 }

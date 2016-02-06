@@ -1,0 +1,6 @@
+*.manifest
+*.exe.config
+*.vshost.exe
+*.pdb
+*.ini
+*.lnk

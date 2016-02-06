@@ -2,3 +2,4 @@
 /ForeignWords.pdb
 /ForeignWords.vshost.exe.config
 /ForeignWords.vshost.exe.manifest
+*.vshost.exe
