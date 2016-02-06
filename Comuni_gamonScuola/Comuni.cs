@@ -6,7 +6,6 @@ namespace gamon
 {
     public static partial class Comuni
     {
-        static string[] sorteggiata;
         static Proposizione[] definizioni;
         private static int nRighePerEntryInQuestionLoop = 9;
 
