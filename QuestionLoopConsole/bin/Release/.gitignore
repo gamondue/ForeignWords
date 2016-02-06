@@ -1,9 +1,9 @@
 *.manifest
-*.exe.config
-*.vshost.exe
+*.vshost.*
 *.pdb
-*.ini
-*.lnk
+*.exe.config
 /QL_Solution_definizioni.txt
 /QL_Questionnaire_definizioni.txt
 /QL_definizioni.txt
+*.ini
+*.lnk

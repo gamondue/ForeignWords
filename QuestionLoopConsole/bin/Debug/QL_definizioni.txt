@@ -1,54 +1,6 @@
 
 Concetto: 
-Burden
-
-Definizione: 
-The act of compelling observance of or compliance with a law, rule, or obligation
-
-________________________________________________________________________________
-
-Concetto: 
-Unification
-
-Definizione: 
-European Committee for Electrotechnical Standardisation
-
-________________________________________________________________________________
-
-Concetto: 
-Distributor
-
-Definizione: 
-New way to technical harmonisation established in 1985, that specifies the essential requirements of products
-
-________________________________________________________________________________
-
-Concetto: 
-Consistency
-
-Definizione: 
-European Committee for Standardisation
-
-________________________________________________________________________________
-
-Concetto: 
-Compliance
-
-Definizione: 
-A legislative act that sets out a goal that all EU countries must achieve
-
-________________________________________________________________________________
-
-Concetto: 
-Accreditation
-
-Definizione: 
-Organization that develops standards
-
-________________________________________________________________________________
-
-Concetto: 
-Harmonization
+CEN
 
 Definizione: 
 The process of creating common standards across the internal market
@@ -56,79 +8,15 @@ The process of creating common standards across the internal market
 ________________________________________________________________________________
 
 Concetto: 
-CENELEC
-
-Definizione: 
-Something difficult or unpleasant that you have to deal with or worry about
-
-________________________________________________________________________________
-
-Concetto: 
-Enforcement
-
-Definizione: 
-Party to the founding treaties of the union 
-
-________________________________________________________________________________
-
-Concetto: 
-Manufacturer
-
-Definizione: 
-An act with which a Member State informs the Commission and the other Member States that a body can carry out conformity assessment according to a directive.
-
-________________________________________________________________________________
-
-Concetto: 
-New approach
-
-Definizione: 
-The official EU Commission database of Notified Bodies
-
-________________________________________________________________________________
-
-Concetto: 
-Notification
-
-Definizione: 
-Any person who is not the importer or manufacturer who makes a product available on the market.
-
-________________________________________________________________________________
-
-Concetto: 
 CE mark
 
 Definizione: 
-Business that make a product available on the market or put it into service within the EU. 
+Organization that develops standards
 
 ________________________________________________________________________________
 
 Concetto: 
-Notified body
-
-Definizione: 
-The act of obeying an order, rule, or request
-
-________________________________________________________________________________
-
-Concetto: 
-Member state
-
-Definizione: 
-Indicator, not a proof, of a product’s compliance with EU legislation
-
-________________________________________________________________________________
-
-Concetto: 
-Standards body
-
-Definizione: 
-An assessment body that has been accredited by a EU Member State to asses the conformity of a product to a specific directive
-
-________________________________________________________________________________
-
-Concetto: 
-Importer
+Accreditation
 
 Definizione: 
 Substituting or combining two or more legal systems and replacing them with a single system
@@ -136,15 +24,15 @@ Substituting or combining two or more legal systems and replacing them with a si
 ________________________________________________________________________________
 
 Concetto: 
-CEN
+Harmonization
 
 Definizione: 
-Any legal or natural person who manufactures a product or has a product designed or manufactured, and markets that product under his name or trademark.
+An assessment body that has been accredited by a EU Member State to asses the conformity of a product to a specific directive
 
 ________________________________________________________________________________
 
 Concetto: 
-NANDO
+Consistency
 
 Definizione: 
 Process of the assessment of conformity assessment bodies
@@ -152,10 +40,122 @@ Process of the assessment of conformity assessment bodies
 ________________________________________________________________________________
 
 Concetto: 
-Directive
+CENELEC
 
 Definizione: 
 The quality of always behaving or performing in a similar way, or of always happening in a similar way
+
+________________________________________________________________________________
+
+Concetto: 
+Enforcement
+
+Definizione: 
+European Committee for Standardisation
+
+________________________________________________________________________________
+
+Concetto: 
+Distributor
+
+Definizione: 
+Business that make a product available on the market or put it into service within the EU. 
+
+________________________________________________________________________________
+
+Concetto: 
+Directive
+
+Definizione: 
+The official EU Commission database of Notified Bodies
+
+________________________________________________________________________________
+
+Concetto: 
+Member state
+
+Definizione: 
+Any person who is not the importer or manufacturer who makes a product available on the market.
+
+________________________________________________________________________________
+
+Concetto: 
+Manufacturer
+
+Definizione: 
+European Committee for Electrotechnical Standardisation
+
+________________________________________________________________________________
+
+Concetto: 
+Compliance
+
+Definizione: 
+The act of compelling observance of or compliance with a law, rule, or obligation
+
+________________________________________________________________________________
+
+Concetto: 
+Notification
+
+Definizione: 
+Something difficult or unpleasant that you have to deal with or worry about
+
+________________________________________________________________________________
+
+Concetto: 
+Standards body
+
+Definizione: 
+Any legal or natural person who manufactures a product or has a product designed or manufactured, and markets that product under his name or trademark.
+
+________________________________________________________________________________
+
+Concetto: 
+New approach
+
+Definizione: 
+New way to technical harmonisation established in 1985, that specifies the essential requirements of products
+
+________________________________________________________________________________
+
+Concetto: 
+Unification
+
+Definizione: 
+The act of obeying an order, rule, or request
+
+________________________________________________________________________________
+
+Concetto: 
+NANDO
+
+Definizione: 
+A legislative act that sets out a goal that all EU countries must achieve
+
+________________________________________________________________________________
+
+Concetto: 
+Burden
+
+Definizione: 
+An act with which a Member State informs the Commission and the other Member States that a body can carry out conformity assessment according to a directive.
+
+________________________________________________________________________________
+
+Concetto: 
+Importer
+
+Definizione: 
+Indicator, not a proof, of a product’s compliance with EU legislation
+
+________________________________________________________________________________
+
+Concetto: 
+Notified body
+
+Definizione: 
+Party to the founding treaties of the union 
 
 ________________________________________________________________________________
 

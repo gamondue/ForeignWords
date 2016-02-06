@@ -10,6 +10,5 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Comuni.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)QuestionLoop.cs" />
   </ItemGroup>
 </Project>

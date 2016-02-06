@@ -46,9 +46,22 @@ namespace gamon
             if (NAllievi == 0 || NAllievi > definizioni.GetLength(0)) NAllievi = definizioni.GetLength(0);
             string[] QuestionLoop = new string[NAllievi * nRighePerEntryInQuestionLoop];
             string[] QuestionLoopSolution = new string[NAllievi * nRighePerEntryInQuestionLoop];
+            string[] Questionnaire = new string[NAllievi * 4 + 2];
             int lineaOpenLoop = 0, lineaOpenLoopSoluzione = 0;
+            int lineaQuestionarioConcetto = NAllievi * 3 + 1, lineaQuestionarioDefinizione = 0;
+            ////Questionnaire[lineaQuestionarioDefinizione - 1] = "________________________________________________________________________________";
+
             // mescola l'array delle definizioni. 
-            //TODO !!!! mescolare prima tutto l'array, così non si prendono solo le prime domande
+            // mescola prima tutto l'array, così non si prendono solo le prime domande
+            for (i = 0; i < definizioni.GetLength(0) - 1; i++)
+            {
+                // riga a caso in cui prendere la riga da scambiare 
+                int rigaACaso = r.Next(i, definizioni.GetLength(0));
+                // scambio fra le righe
+                Proposizione dummy = definizioni[i];
+                definizioni[i] = definizioni[rigaACaso];
+                definizioni[rigaACaso] = dummy;
+            }
 
             // mescola i concetti e le definizioni separatamente
             for (i = 0; i < NAllievi; i++)
@@ -72,7 +85,6 @@ namespace gamon
                 dummy = definizioni[i].Definizione;
                 definizioni[i].Definizione = definizioni[rigaACasoDefinizione].Definizione;
                 definizioni[rigaACasoDefinizione].Definizione = dummy;
-                Console.WriteLine(definizioni[i].ToString());
             }
             // genera il QuestionLoop
             for (i = 0; i < NAllievi; i++)
@@ -97,36 +109,22 @@ namespace gamon
                 QuestionLoopSolution[lineaOpenLoopSoluzione] = definizioni[i].Definizione.Informazione; lineaOpenLoopSoluzione++;
                 QuestionLoopSolution[lineaOpenLoopSoluzione] = ""; lineaOpenLoopSoluzione++;
                 QuestionLoopSolution[lineaOpenLoopSoluzione] = "________________________________________________________________________________"; lineaOpenLoopSoluzione++;
-                QuestionLoopSolution[lineaOpenLoopSoluzione] = ""; 
-            }
-            gamon.FileDiTesto.VettoreInFile("QL_Solution_" + File, QuestionLoopSolution, false);
-            gamon.FileDiTesto.VettoreInFile("QL_" + File, QuestionLoop, false);
-            return 0; 
-        }
+                QuestionLoopSolution[lineaOpenLoopSoluzione] = "";
 
-        private static void ScambioRighe(string[,] definizioni, int i, int riga)
-        {
-            int j; 
-            // copia la riga sorteggiata in un vettore temporaneo 
-            for (j = 0; j < definizioni.GetLength(1); j++)
-            {
-                sorteggiata[j] = definizioni[riga, j];
+                // Genera le righe della questionario
+                Questionnaire[lineaQuestionarioConcetto] = "Concetto (" + (i+1).ToString() + "): " + definizioni[i].Concetto.Informazione; lineaQuestionarioConcetto++;
+                Questionnaire[lineaQuestionarioDefinizione] = "Definizione n._____"; lineaQuestionarioDefinizione++;
+                Questionnaire[lineaQuestionarioDefinizione] = definizioni[i].Definizione.Informazione; lineaQuestionarioDefinizione++;
+                Questionnaire[lineaQuestionarioDefinizione] = "________________________________________________________________________________"; lineaQuestionarioDefinizione++;
             }
-            // copia la i-esima riga su quella sorteggiata
-            for (j = 0; j < definizioni.GetLength(1); j++)
-            {
-                definizioni[riga, j] = definizioni[i, j];
-            }
-            // copia nella i-esima riga la riga temporanea 
-            for (j = 0; j < definizioni.GetLength(1); j++)
-            {
-                definizioni[i, j] = sorteggiata[j];
-            }
+            gamon.FileDiTesto.VettoreInFile("QL_" + File, QuestionLoop, false);
+            gamon.FileDiTesto.VettoreInFile("QL_Solution_" + File, QuestionLoopSolution, false);
+            gamon.FileDiTesto.VettoreInFile("QL_Questionnaire_" + File, Questionnaire, false);
+            return 0; 
         }
 
         public static uint QuestionLoop(int i)
         {
-            Console.WriteLine("1 parametro");
             return QuestionLoop("definizioni.txt", i);
         }
 
