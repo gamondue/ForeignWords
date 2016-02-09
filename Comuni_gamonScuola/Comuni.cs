@@ -117,9 +117,9 @@ namespace gamon
                 Questionnaire[lineaQuestionarioDefinizione] = definizioni[i].Definizione.Informazione; lineaQuestionarioDefinizione++;
                 Questionnaire[lineaQuestionarioDefinizione] = "________________________________________________________________________________"; lineaQuestionarioDefinizione++;
             }
-            gamon.FileDiTesto.VettoreInFile("QL_" + File, QuestionLoop, false);
-            gamon.FileDiTesto.VettoreInFile("QL_Solution_" + File, QuestionLoopSolution, false);
-            gamon.FileDiTesto.VettoreInFile("QL_Questionnaire_" + File, Questionnaire, false);
+            gamon.FileDiTesto.VettoreInFile(File + "_QL.txt", QuestionLoop, false);
+            gamon.FileDiTesto.VettoreInFile(File + "_QL_SOLUTION.txt", QuestionLoopSolution, false);
+            gamon.FileDiTesto.VettoreInFile(File + "_QL_QUESTIONNAIRE.txt", Questionnaire, false);
             return 0; 
         }
 
@@ -131,6 +131,123 @@ namespace gamon
         public static uint QuestionLoop()
         {
             return QuestionLoop("definizioni.txt", 0);
+        }
+
+        enum statoGrafoCloze
+        {
+            FuoriDaParola,
+            DentroParola,
+            DentroParolaDaCancellare, 
+        }
+
+        public static uint Cloze(string File, int MediaParole)
+        {
+            int mediaParole = 7; // default 
+
+            if (MediaParole > 0)
+                mediaParole = MediaParole; 
+
+            Random r = new Random();
+
+            string originaleText = gamon.FileDiTesto.FileInStringa(File);
+
+            StringBuilder originaleBuilder = new System.Text.StringBuilder(originaleText);
+            string paroleCancellate = ""; 
+            
+            // elimina le parole e le memorizza nella lista delle paroleCancellate
+            int indexOriginale = 0;
+            int nParola = 0;
+            statoGrafoCloze stato = statoGrafoCloze.FuoriDaParola;
+            int numeroProssimaParola = prossimaParolaDaCancellare();
+            StringBuilder parolaDaCancellare = new StringBuilder();
+            char carattere; 
+
+            while (indexOriginale < originaleText.Length)
+            {
+                // grafo riconoscitore che conta le parole 
+                carattere = originaleText[indexOriginale];
+                switch (stato)
+                { 
+                    case (statoGrafoCloze.FuoriDaParola):
+                        {
+                            if (letteraDiParola(carattere))
+                            {   // trovata nuova parola
+                                nParola++;
+                                // controlla se è una parola da cancellare
+                                if (nParola == numeroProssimaParola)
+                                {
+                                    stato = statoGrafoCloze.DentroParolaDaCancellare;
+                                    originaleBuilder[indexOriginale] = '_';
+                                    parolaDaCancellare = new StringBuilder();
+                                    parolaDaCancellare.Append(carattere);
+                                    numeroProssimaParola += prossimaParolaDaCancellare();
+                                }
+                                else
+                                {   // parola da non cancellare  
+                                    stato = statoGrafoCloze.DentroParola;
+                                }
+                            }
+                            else
+                            {   // ancora fuori da una parola
+                            }
+                            break;
+                        }
+                    case (statoGrafoCloze.DentroParola):
+                        {
+                            if (!letteraDiParola(carattere))
+                            {   // parola finita
+                                stato = statoGrafoCloze.FuoriDaParola; 
+                            }
+                            else
+                            {   // altra lettera dentro la parola
+
+                            }
+                            break; 
+                        }
+                    case (statoGrafoCloze.DentroParolaDaCancellare):
+                        {
+                            if (!letteraDiParola(carattere))
+                            {   // parola da cancellare finita
+                                stato = statoGrafoCloze.FuoriDaParola;
+                                paroleCancellate += parolaDaCancellare.ToString() + "\r\n";
+                            }
+                            else
+                            {   // altra lettera dentro la parola da cancellare 
+                                originaleBuilder[indexOriginale] = '_';
+                                parolaDaCancellare.Append(carattere);
+                            }
+                            break;
+                        }
+                }
+                indexOriginale++;
+            }
+            gamon.FileDiTesto.StringaInFile(File + "_Cloze.txt", originaleBuilder.ToString(), false);
+            gamon.FileDiTesto.StringaInFile(File + "_Cloze_SOLUTION.txt", paroleCancellate, false);
+            // mescola le parole cancellate
+            string[] parole = paroleCancellate.Substring(0, paroleCancellate.Length -2).Replace("\r", "").Split('\n');
+            MescolaArrayStringhe(parole); 
+            gamon.FileDiTesto.VettoreInFile(File + "_Cloze_WORDS.txt", parole, false);
+            return 0;
+        }
+
+        private static bool letteraDiParola(char v)
+        {
+            return Char.IsLetterOrDigit(v);
+        }
+
+        public static uint Cloze()
+        {
+            return Cloze("testo.txt", 0);
+        }
+
+        public static uint Cloze(string File)
+        {
+            return Cloze(File, 0);
+        }
+
+        private static int prossimaParolaDaCancellare()
+        {
+            return 7;
         }
     }
 }
