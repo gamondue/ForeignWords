@@ -63,6 +63,10 @@ namespace gamon
                 definizioni[rigaACaso] = dummy;
             }
 
+            Console.WriteLine("Generazione Question loop con " +
+                (NAllievi).ToString() + " domande");
+            Console.WriteLine("File originale: " + File + "\r\n");
+
             // mescola i concetti e le definizioni separatamente
             for (i = 0; i < NAllievi; i++)
             {
@@ -118,8 +122,15 @@ namespace gamon
                 Questionnaire[lineaQuestionarioDefinizione] = "________________________________________________________________________________"; lineaQuestionarioDefinizione++;
             }
             gamon.FileDiTesto.VettoreInFile(File + "_QL.txt", QuestionLoop, false);
+            Console.WriteLine("Creato il file " + File + "_QL.txt" + 
+                "\r\n\t(domande del question loop)");
             gamon.FileDiTesto.VettoreInFile(File + "_QL_SOLUTION.txt", QuestionLoopSolution, false);
+            Console.WriteLine("Creato il file " + File + "_QL_QUESTIONNAIRE.txt" +
+                "\r\n\t(questionario ricavato dal file originale)");
+            Console.WriteLine("Creato il file " + File + "_QL_SOLUTION.txt" + 
+                 "\r\n\t(risposte nell'ordine corretto)");
             gamon.FileDiTesto.VettoreInFile(File + "_QL_QUESTIONNAIRE.txt", Questionnaire, false);
+
             return 0; 
         }
 
@@ -145,7 +156,11 @@ namespace gamon
             int mediaParole = 7; // default 
 
             if (MediaParole > 0)
-                mediaParole = MediaParole; 
+                mediaParole = MediaParole;
+
+            Console.WriteLine("Generazione Cloze con oscuramento ogni " + 
+                mediaParole.ToString() + " parole");
+            Console.WriteLine("File originale: " + File);
 
             Random r = new Random();
 
@@ -158,7 +173,7 @@ namespace gamon
             int indexOriginale = 0;
             int nParola = 0;
             statoGrafoCloze stato = statoGrafoCloze.FuoriDaParola;
-            int numeroProssimaParola = prossimaParolaDaCancellare();
+            int numeroProssimaParola = prossimaParolaDaCancellare(mediaParole);
             StringBuilder parolaDaCancellare = new StringBuilder();
             char carattere; 
 
@@ -180,7 +195,7 @@ namespace gamon
                                     originaleBuilder[indexOriginale] = '_';
                                     parolaDaCancellare = new StringBuilder();
                                     parolaDaCancellare.Append(carattere);
-                                    numeroProssimaParola += prossimaParolaDaCancellare();
+                                    numeroProssimaParola += prossimaParolaDaCancellare(mediaParole);
                                 }
                                 else
                                 {   // parola da non cancellare  
@@ -222,17 +237,15 @@ namespace gamon
                 indexOriginale++;
             }
             gamon.FileDiTesto.StringaInFile(File + "_Cloze.txt", originaleBuilder.ToString(), false);
+            Console.WriteLine("Creato il file " + File + "_Cloze.txt (esercizio)");
             gamon.FileDiTesto.StringaInFile(File + "_Cloze_SOLUTION.txt", paroleCancellate, false);
+            Console.WriteLine("Creato il file " + File + "_Cloze_SOLUTION.txt \r\n (parole escluse nell'ordine di esclusione)");
             // mescola le parole cancellate
             string[] parole = paroleCancellate.Substring(0, paroleCancellate.Length -2).Replace("\r", "").Split('\n');
+            Console.WriteLine("Creato il file " + File + "_Cloze_WORDS.txt \r\n (elenco mischiato delle parole omesse)");
             MescolaArrayStringhe(parole); 
             gamon.FileDiTesto.VettoreInFile(File + "_Cloze_WORDS.txt", parole, false);
             return 0;
-        }
-
-        private static bool letteraDiParola(char v)
-        {
-            return Char.IsLetterOrDigit(v);
         }
 
         public static uint Cloze()
@@ -240,14 +253,19 @@ namespace gamon
             return Cloze("testo.txt", 0);
         }
 
-        public static uint Cloze(string File)
+        public static uint Cloze(int MediaParole)
         {
-            return Cloze(File, 0);
+            return Cloze("testo.txt", MediaParole);
         }
 
-        private static int prossimaParolaDaCancellare()
+        private static bool letteraDiParola(char v)
         {
-            return 7;
+            return Char.IsLetterOrDigit(v);
+        }
+
+        private static int prossimaParolaDaCancellare(int MediaParole)
+        {
+            return MediaParole;
         }
     }
 }

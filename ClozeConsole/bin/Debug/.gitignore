@@ -2,3 +2,5 @@
 *.vshost.exe
 *.exe.config
 *.pdb
+*.ini
+*.lnk
