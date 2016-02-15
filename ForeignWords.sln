@@ -15,12 +15,16 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Comuni", "..\CalcoloZ-Git\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClozeConsole", "ClozeConsole\ClozeConsole.csproj", "{B077657A-78BA-4EA9-9986-595117E496AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloseEndedQuestionnaire", "CloseEndedQuestionnaire\CloseEndedQuestionnaire.csproj", "{3C603518-8706-4778-8F7C-B6D2080B2396}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\CalcoloZ-Git\Comuni\Comuni.projitems*{b077657a-78ba-4ea9-9986-595117e496ab}*SharedItemsImports = 4
 		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{b077657a-78ba-4ea9-9986-595117e496ab}*SharedItemsImports = 4
 		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{a1492e4f-95b0-4d55-a933-f6a18e366dd8}*SharedItemsImports = 13
 		..\CalcoloZ-Git\Comuni\Comuni.projitems*{c6aed2a3-bf9f-4677-beac-bc2582e36455}*SharedItemsImports = 13
+		..\CalcoloZ-Git\Comuni\Comuni.projitems*{3c603518-8706-4778-8f7c-b6d2080b2396}*SharedItemsImports = 4
+		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{3c603518-8706-4778-8f7c-b6d2080b2396}*SharedItemsImports = 4
 		..\CalcoloZ-Git\Comuni\Comuni.projitems*{1ebd7e71-5e1b-4f94-9129-13477d34493e}*SharedItemsImports = 4
 		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{1ebd7e71-5e1b-4f94-9129-13477d34493e}*SharedItemsImports = 4
 	EndGlobalSection
@@ -77,6 +81,18 @@ Global
 		{B077657A-78BA-4EA9-9986-595117E496AB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B077657A-78BA-4EA9-9986-595117E496AB}.Release|Win32.ActiveCfg = Release|Any CPU
 		{B077657A-78BA-4EA9-9986-595117E496AB}.Release|Win32.Build.0 = Release|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Debug|Win32.Build.0 = Debug|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Release|Win32.ActiveCfg = Release|Any CPU
+		{3C603518-8706-4778-8F7C-B6D2080B2396}.Release|Win32.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

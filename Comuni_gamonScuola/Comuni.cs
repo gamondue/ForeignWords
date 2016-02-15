@@ -15,13 +15,13 @@ namespace gamon
         {
             internal string Informazione;
             internal int RigaIniziale;
-        }; 
+        };
         // 
         internal struct Proposizione
         {
             internal InfoEPosto Concetto;
             internal InfoEPosto Definizione;
-        }; 
+        };
 
         public static uint QuestionLoop(string File, int NAllievi)
         {
@@ -34,7 +34,7 @@ namespace gamon
             // copia in definizioni quello che trova nel file 
             // e gli aggiunge gli indici di riga, per ricordarsi come verranno mescolate
             for (i = 0; i < definizioniOriginarie.GetLength(0); i++)
-            { 
+            {
                 definizioni[i].Concetto.RigaIniziale = i + 1;
                 definizioni[i].Definizione.RigaIniziale = i + 1;
                 for (j = 0; j < definizioniOriginarie.GetLength(1); j++)
@@ -79,7 +79,7 @@ namespace gamon
                 do  // gira mentre hanno la stessa riga iniziale 
                 {
                     rigaACasoDefinizione = r.Next(i, NAllievi);
-                } while (definizioni[rigaACasoDefinizione].Concetto.RigaIniziale == 
+                } while (definizioni[rigaACasoDefinizione].Concetto.RigaIniziale ==
                             definizioni[rigaACasoConcetto].Definizione.RigaIniziale);
                 // scambio fra i concetti
                 InfoEPosto dummy = definizioni[i].Concetto;
@@ -116,22 +116,22 @@ namespace gamon
                 QuestionLoopSolution[lineaOpenLoopSoluzione] = "";
 
                 // Genera le righe della questionario
-                Questionnaire[lineaQuestionarioConcetto] = "Concetto (" + (i+1).ToString() + "): " + definizioni[i].Concetto.Informazione; lineaQuestionarioConcetto++;
+                Questionnaire[lineaQuestionarioConcetto] = "Concetto (" + (i + 1).ToString() + "): " + definizioni[i].Concetto.Informazione; lineaQuestionarioConcetto++;
                 Questionnaire[lineaQuestionarioDefinizione] = "Definizione n._____"; lineaQuestionarioDefinizione++;
                 Questionnaire[lineaQuestionarioDefinizione] = definizioni[i].Definizione.Informazione; lineaQuestionarioDefinizione++;
                 Questionnaire[lineaQuestionarioDefinizione] = "________________________________________________________________________________"; lineaQuestionarioDefinizione++;
             }
             gamon.FileDiTesto.VettoreInFile(File + "_QL.txt", QuestionLoop, false);
-            Console.WriteLine("Creato il file " + File + "_QL.txt" + 
+            Console.WriteLine("Creato il file " + File + "_QL.txt" +
                 "\r\n\t(domande del question loop)");
             gamon.FileDiTesto.VettoreInFile(File + "_QL_SOLUTION.txt", QuestionLoopSolution, false);
             Console.WriteLine("Creato il file " + File + "_QL_QUESTIONNAIRE.txt" +
                 "\r\n\t(questionario ricavato dal file originale)");
-            Console.WriteLine("Creato il file " + File + "_QL_SOLUTION.txt" + 
+            Console.WriteLine("Creato il file " + File + "_QL_SOLUTION.txt" +
                  "\r\n\t(risposte nell'ordine corretto)");
             gamon.FileDiTesto.VettoreInFile(File + "_QL_QUESTIONNAIRE.txt", Questionnaire, false);
 
-            return 0; 
+            return 0;
         }
 
         public static uint QuestionLoop(int i)
@@ -148,7 +148,7 @@ namespace gamon
         {
             FuoriDaParola,
             DentroParola,
-            DentroParolaDaCancellare, 
+            DentroParolaDaCancellare,
         }
 
         public static uint Cloze(string File, int MediaParole)
@@ -158,7 +158,7 @@ namespace gamon
             if (MediaParole > 0)
                 mediaParole = MediaParole;
 
-            Console.WriteLine("Generazione Cloze con oscuramento ogni " + 
+            Console.WriteLine("Generazione Cloze con oscuramento ogni " +
                 mediaParole.ToString() + " parole");
             Console.WriteLine("File originale: " + File);
 
@@ -167,22 +167,22 @@ namespace gamon
             string originaleText = gamon.FileDiTesto.FileInStringa(File);
 
             StringBuilder originaleBuilder = new System.Text.StringBuilder(originaleText);
-            string paroleCancellate = ""; 
-            
+            string paroleCancellate = "";
+
             // elimina le parole e le memorizza nella lista delle paroleCancellate
             int indexOriginale = 0;
             int nParola = 0;
             statoGrafoCloze stato = statoGrafoCloze.FuoriDaParola;
             int numeroProssimaParola = prossimaParolaDaCancellare(mediaParole);
             StringBuilder parolaDaCancellare = new StringBuilder();
-            char carattere; 
+            char carattere;
 
             while (indexOriginale < originaleText.Length)
             {
                 // grafo riconoscitore che conta le parole 
                 carattere = originaleText[indexOriginale];
                 switch (stato)
-                { 
+                {
                     case (statoGrafoCloze.FuoriDaParola):
                         {
                             if (letteraDiParola(carattere))
@@ -211,13 +211,13 @@ namespace gamon
                         {
                             if (!letteraDiParola(carattere))
                             {   // parola finita
-                                stato = statoGrafoCloze.FuoriDaParola; 
+                                stato = statoGrafoCloze.FuoriDaParola;
                             }
                             else
                             {   // altra lettera dentro la parola
 
                             }
-                            break; 
+                            break;
                         }
                     case (statoGrafoCloze.DentroParolaDaCancellare):
                         {
@@ -238,13 +238,18 @@ namespace gamon
             }
             gamon.FileDiTesto.StringaInFile(File + "_Cloze.txt", originaleBuilder.ToString(), false);
             Console.WriteLine("Creato il file " + File + "_Cloze.txt (esercizio)");
-            gamon.FileDiTesto.StringaInFile(File + "_Cloze_SOLUTION.txt", paroleCancellate, false);
+            gamon.FileDiTesto.StringaInFile(File + "_Cloze_SOLUTION.txt", paroleCancellate.Replace("\r\n", ", "), false);
             Console.WriteLine("Creato il file " + File + "_Cloze_SOLUTION.txt \r\n (parole escluse nell'ordine di esclusione)");
+
             // mescola le parole cancellate
-            string[] parole = paroleCancellate.Substring(0, paroleCancellate.Length -2).Replace("\r", "").Split('\n');
+            string[] parole = paroleCancellate.Substring(0, paroleCancellate.Length - 2).Replace("\r", "").Split('\n');
             Console.WriteLine("Creato il file " + File + "_Cloze_WORDS.txt \r\n (elenco mischiato delle parole omesse)");
-            MescolaArrayStringhe(parole); 
-            gamon.FileDiTesto.VettoreInFile(File + "_Cloze_WORDS.txt", parole, false);
+            //MescolaArrayStringhe(parole);
+            OrdinaArrayStringhe(parole);
+            // metto in una sola stringa tutto l'array: 
+            string file = String.Join(", ", parole);
+            // gamon.FileDiTesto.VettoreInFile(File + "_Cloze_WORDS.txt", parole, false);
+            gamon.FileDiTesto.StringaInFile(File + "_Cloze_WORDS.txt", file, false);
             return 0;
         }
 
@@ -266,6 +271,99 @@ namespace gamon
         private static int prossimaParolaDaCancellare(int MediaParole)
         {
             return MediaParole;
+        }
+
+        public class Answer
+        {
+            public string AnswerText;
+            public bool CheckedIsCorrect;
+        }
+
+        public class QuestionnaireQuestion
+        {
+            public QuestionType Type;
+            public string Question;
+            public List<Answer> Answers; 
+        }
+
+        public enum QuestionType
+        {
+            Exclusive,
+            Multiple,
+            NonDefined, 
+        }
+
+        public static uint Questionnaire(string File)
+        {
+            string quadrato = "□";
+            string tondo = "⃝";
+            string[] originaleArray = gamon.FileDiTesto.FileInVettore(File);
+
+            List<QuestionnaireQuestion> questionario = new List<QuestionnaireQuestion>(); 
+            
+            int nQuestion = 0; 
+            QuestionnaireQuestion q = null;
+            string r = ""; 
+            while (nQuestion < originaleArray.Length - 1)
+            { 
+                string riga = originaleArray[nQuestion];
+                QuestionType tipo = TipoDomanda(riga);
+                Answer risp = new Answer();
+                if (!(tipo == QuestionType.NonDefined))
+                { 
+                    if (q != null)
+                    {
+                        questionario.Add(q); 
+                    }
+                    q = new QuestionnaireQuestion();
+                    q.Type = tipo;
+                    nQuestion++;
+                    riga = originaleArray[nQuestion];
+                    if (riga != "")
+                        q.Question = riga;
+                    q.Answers = new List<Answer>();
+                    nQuestion++;
+                    r = originaleArray[nQuestion].Trim();
+                    if (r.Substring(1, 1) == "X" || r.Substring(1, 1) == "x")
+                    {
+                        risp.CheckedIsCorrect = true;
+                        r = r.Substring(2).Trim();
+                    }
+                    else
+                        risp.CheckedIsCorrect = false;
+                    risp.AnswerText = r; 
+                }
+                if (r != "" && TipoDomanda(r) == QuestionType.NonDefined)
+                    q.Answers.Add(risp);
+                nQuestion++;
+            }
+
+            string file = "";
+            // creazione questionario
+            foreach (QuestionnaireQuestion dom in questionario)
+            {
+                string segno = "";
+                if (dom.Type == QuestionType.Exclusive)
+                    segno = tondo;
+                else
+                    segno = quadrato;
+                file += dom.Question + "\r\n";
+                foreach (Answer answ in dom.Answers)
+                    file += segno + " " + answ.AnswerText.Trim() + "\r\n";
+                //file += "\r\n";
+            }
+            gamon.FileDiTesto.StringaInFile(File + "_QUEST.txt", file, false);
+            return 0; 
+        }
+
+        private static QuestionType TipoDomanda(string rigaText)
+        {
+            if (rigaText == "M" || rigaText == "m")
+                return QuestionType.Multiple;
+            else if (rigaText == "X" || rigaText == "x")
+                return QuestionType.Exclusive;
+            else
+                return QuestionType.NonDefined; 
         }
     }
 }

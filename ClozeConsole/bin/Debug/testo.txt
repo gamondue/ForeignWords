@@ -1,13 +1,20 @@
-I wondered if anyone has ever studied the direct connection there seems to be, in kids under the age of, say, ten, between the N400 (a brain response to semantic anomalies) and the funny bone. (If you want to get a little kid to laugh, start saying things like “Mommy ate the swimming pool!”) After a quick look, it turns out there’s plenty of literature on the N400 and jokes or humor, e.g. this 2001 paper by Coulson and Kutas (and see Kutas and Federmeier's nice review article for discussion of the N400 more generally).
-From there, it was just a short, perhaps slightly champagne-fueled leap to the realization that Mad Libs would make a great starting point for lots of other topics in Linguistics, too…
-Psycholinguistics: Listed here first because I’ve already mentioned it. Nice lead-in to the N400, plus Cloze tests, which I’m told (by a reliable source to whom I’m married) are used frequently by psychologists, speech pathologists, and special educators.
-Syntax: Mad Libs is clearly a great way to lead into grammatical categories and, for computational folks, the problem of lexical ambiguity and part-of-speech tagging. (For English teachers teaching about the parts of speech, by the way, see here for a nice list of resources.)
-Morphology: Some of the prompts in Mad Libs include things like verb ending with -ing or noun (plural), a perfect lead-in to inflectional morphology. Also, I imagine Mad Libs must work less well, or at least be realized differently, in languages with rich morphology, since words proposed out of context will fail on grounds of syntactic disagreement when plugged in, and syntactic garbling just isn’t as funny as semantic mismatch; this might be interesting to explore and discuss.
-Semantics: Mad Libs provides lots of opportunities to  concepts like selectional restrictions/preferences (the violation of which is why “ate the swimming pool” is funny), semantic anomaly (do married bachelors and colorless green ideas denote the same set?), and word sense ambiguity (and the role of context in resolving it).
-Philosophy of language: What about Mad Libs makes it natural (or less natural) to call it a “game”? Leads nicely to Wittgenstein, Philosophical Investigations, not to mention straight back to psycholinguistics via Prototype Theory.
-Statistical NLP: Mad Libs provides a great opportunity to generate and assess the probability of low-probability sentences using language models, not to mention a good jumping-off point for discussing the relationships among possible, plausible, and probable sentences.
-Finally, we mustn’t forget snowclones, closely linked to Mad Libs via the notion of a phrasal template. Lots of interesting source material here on Language Log for that, of course, plus nice opportunities for corpus analysis.
+What is documented information? - Definitions and references
+The term Documented information was introduced as part of the common High Level Structure(HLS) and common terms for Management System Standards (MSS).
+The definition of documented information can be found in ISO 9000 clause 3.8. Documented information can be used to communicate a message, provide evidence of what has actually been done of what was planned, or knowledge sharing.
+The following are some of the main objectives of an organization’s documented information independent of whether
+or not it has implemented a formal QMS;
+a) Communication of Information
+	- As a tool for information transmission and communication. The type and extent of the documented information will depend on the nature of the organization’s products and processes, the degree of formality of communication systems and the level of communication skills within the organization, and the organizational culture.
+b) Evidence of conformity
+	- Provision of evidence that what was planned has actually been done.
+c) Knowledge sharing
+d) To disseminate and preserve the organization’s experiences. A typical example would be a technical specification, which can be used as a base for design and development of a new product or service. 
+A list of commonly used terms and definitions relating to documented information is presented in ISO 9001:2015 Annex A.
+It must be stressed that, according to ISO 9001:2015 clause 7.5.3 Control of documented information requirements, documents may be in any form or type of medium, and the definition of “document” in ISO 9000:2015 clause 3.8.5 gives the following examples:
+- paper
+- magnetic
+- electronic or optical computer disc
+- photograph
+- master sample
 
-Personally, I think it was playing Mad Libs as a kid that got me comfortable with at least the basic idea of verbs and nouns and other lexical categories, so maybe I’ll try to use it sometime when teaching intro linguistics. In the meantime, for bonus creativity/pedantry Mad Libs fun, try filling in the categories with mass nouns, non-agentive verbs, and other atypical exemplars of their categories. 
-
-Related games to play at your next linguist party also include Consequences and Exquisite Corpse. There’s also LTAG, Taboo and Catchphrase, Descriptivist Scrabble, and IPA Scrabble. I seem to have amassed quite a list of linguistics games: anyone else have other favourites?
+(from http://www.iso.org/iso/documented_information.pdf)
