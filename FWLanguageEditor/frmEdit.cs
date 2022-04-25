@@ -27,16 +27,16 @@ namespace gamon.ForeignWords
 
             // inizializzazioni per tutta l'applicazione
             // lingua di default
-            Common.LinguaCorrente = "English";
+            Global.LinguaCorrente = "English";
             // lingua del computer
             string linguaComputer = CultureInfo.CurrentCulture.Name.ToLower();
-            foreach (string lingua in Common.Lingue)
+            foreach (string lingua in Global.Lingue)
             {
                 //TODO aggiungere il codice lingua al database, così che il prossimo confronto
                 // possa funzionare
                 if (lingua.ToLower() == linguaComputer)
                 {
-                    Common.LinguaCorrente = lingua;
+                    Global.LinguaCorrente = lingua;
                 }
                 break;
             }
@@ -48,7 +48,7 @@ namespace gamon.ForeignWords
         private void doCheckBoxes()
         {
             // legge le lingue e fa i checkbox
-            ArrayList lingue = Common.LibDB.LinguePresenti();
+            ArrayList lingue = Global.LibDB.LinguePresenti();
             Point punto = new Point(7, 7);
             foreach (object lingua in lingue)
             {
@@ -69,7 +69,7 @@ namespace gamon.ForeignWords
 
             // DataSet e griglia
 
-            ArrayList lingue = Common.LibDB.LinguePresenti();
+            ArrayList lingue = Global.LibDB.LinguePresenti();
             Point punto = new Point(7, 7);
 
             string lingueVisualizzate = "";
@@ -80,7 +80,7 @@ namespace gamon.ForeignWords
             }
             if (lingueVisualizzate.Length == 0) return;
             lingueVisualizzate = lingueVisualizzate.Substring(0, lingueVisualizzate.Length - 1);
-            Common.LibDB.DataSetCaptionLingue(ref dadapCaptions, ref dSetEsercizi, lingueVisualizzate);
+            Global.LibDB.DataSetCaptionLingue(ref dadapCaptions, ref dSetEsercizi, lingueVisualizzate);
 
             DataTable dTCaptions = dSetEsercizi.Tables[0];
 
@@ -92,7 +92,7 @@ namespace gamon.ForeignWords
 
         private void bntOK_Click(object sender, EventArgs e)
         {
-            DbConnection conn = Common.LibDB.Connetti();
+            DbConnection conn = Global.LibDB.Connetti();
             DbCommand comm = conn.CreateCommand();
 
             dadapCaptions.Update(dSetEsercizi);
@@ -108,7 +108,7 @@ namespace gamon.ForeignWords
             if (dSetEsercizi.Tables[0].GetChanges() != null)
             {
 //TODO mettere nel database !!!!!!!!!!!!!
-                if (MessageBox.Show(Common.Captions["messModifiche"].ToString(),
+                if (MessageBox.Show(Global.Captions["messModifiche"].ToString(),
                                     "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     return;
@@ -136,17 +136,17 @@ namespace gamon.ForeignWords
             if (nuovo.ShowDialog() == DialogResult.OK && nuovo.txtNewLanguage.Text != "")
             {
                 // controlla che la nuova lingua non ci sia già 
-                for (int i = 0; i < Common.Lingue.Count; i++)
+                for (int i = 0; i < Global.Lingue.Count; i++)
                 {
-                    if (Common.Lingue[i].ToString() == nuovo.txtNewLanguage.Text)
+                    if (Global.Lingue[i].ToString() == nuovo.txtNewLanguage.Text)
                     {
-                        MessageBox.Show(Common.Captions["messLinguaggioPresente"].ToString(),
+                        MessageBox.Show(Global.Captions["messLinguaggioPresente"].ToString(),
                             "", MessageBoxButtons.OK);
                         return; 
                     }
                 }
                 // Inserisce la nuova lingua
-                Common.LibDB.NuovaLingua(nuovo.txtNewLanguage.Text);
+                Global.LibDB.NuovaLingua(nuovo.txtNewLanguage.Text);
                 doCheckBoxes();
             }
         }
@@ -157,7 +157,7 @@ namespace gamon.ForeignWords
             saveFileDialog.FileName = "ForeignWords_" + DateTime.Now.ToString("yyyy.MM.dd") + ".sqlite";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                System.IO.File.Copy(Common.LibDB.NomeEPathDatabase, saveFileDialog.FileName, true);
+                System.IO.File.Copy(Global.LibDB.NomeEPathDatabase, saveFileDialog.FileName, true);
             }
         }
 
@@ -200,7 +200,7 @@ namespace gamon.ForeignWords
                                     + "\nShould I overwrite?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
                     == System.Windows.Forms.DialogResult.OK)
                 {
-                    System.IO.File.Copy(openFileDialog.FileName, Common.LibDB.NomeEPathDatabase, true);
+                    System.IO.File.Copy(openFileDialog.FileName, Global.LibDB.NomeEPathDatabase, true);
                 }
             }
         }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace gamon.ForeignWords
@@ -7,13 +6,17 @@ namespace gamon.ForeignWords
     static class Program
     {
         /// <summary>
-        /// The main entry point for the application.
+        ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+#if !DEBUG
+            Application.Run(new gamon.frmAbout());
+#endif
             Application.Run(new frmVerbi());
         }
     }

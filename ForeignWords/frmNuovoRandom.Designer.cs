@@ -39,9 +39,10 @@ namespace gamon.ForeignWords
             // rdNulla
             // 
             this.rdNulla.AutoSize = true;
-            this.rdNulla.Location = new System.Drawing.Point(12, 60);
+            this.rdNulla.Location = new System.Drawing.Point(14, 69);
+            this.rdNulla.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rdNulla.Name = "rdNulla";
-            this.rdNulla.Size = new System.Drawing.Size(105, 17);
+            this.rdNulla.Size = new System.Drawing.Size(116, 19);
             this.rdNulla.TabIndex = 0;
             this.rdNulla.TabStop = true;
             this.rdNulla.Text = "Ordine alfabetico";
@@ -52,9 +53,10 @@ namespace gamon.ForeignWords
             // 
             this.rdRandom.AutoSize = true;
             this.rdRandom.Checked = true;
-            this.rdRandom.Location = new System.Drawing.Point(12, 12);
+            this.rdRandom.Location = new System.Drawing.Point(14, 14);
+            this.rdRandom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rdRandom.Name = "rdRandom";
-            this.rdRandom.Size = new System.Drawing.Size(146, 17);
+            this.rdRandom.Size = new System.Drawing.Size(154, 19);
             this.rdRandom.TabIndex = 1;
             this.rdRandom.TabStop = true;
             this.rdRandom.Text = "Nuova sequenza casuale";
@@ -65,9 +67,10 @@ namespace gamon.ForeignWords
             // 
             this.rdDeterminata.AutoSize = true;
             this.rdDeterminata.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.rdDeterminata.Location = new System.Drawing.Point(12, 36);
+            this.rdDeterminata.Location = new System.Drawing.Point(14, 42);
+            this.rdDeterminata.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rdDeterminata.Name = "rdDeterminata";
-            this.rdDeterminata.Size = new System.Drawing.Size(178, 17);
+            this.rdDeterminata.Size = new System.Drawing.Size(196, 19);
             this.rdDeterminata.TabIndex = 2;
             this.rdDeterminata.TabStop = true;
             this.rdDeterminata.Text = "Sequenza determinata, numero: ";
@@ -77,16 +80,18 @@ namespace gamon.ForeignWords
             // txtSeme
             // 
             this.txtSeme.Enabled = false;
-            this.txtSeme.Location = new System.Drawing.Point(187, 35);
+            this.txtSeme.Location = new System.Drawing.Point(218, 40);
+            this.txtSeme.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtSeme.Name = "txtSeme";
-            this.txtSeme.Size = new System.Drawing.Size(100, 20);
+            this.txtSeme.Size = new System.Drawing.Size(116, 23);
             this.txtSeme.TabIndex = 3;
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(232, 7);
+            this.btnOK.Location = new System.Drawing.Point(271, 8);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(54, 24);
+            this.btnOK.Size = new System.Drawing.Size(63, 28);
             this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -94,10 +99,10 @@ namespace gamon.ForeignWords
             // 
             // frmNuovoRandom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(294, 87);
+            this.ClientSize = new System.Drawing.Size(343, 100);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtSeme);
             this.Controls.Add(this.rdDeterminata);
@@ -106,6 +111,7 @@ namespace gamon.ForeignWords
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmNuovoRandom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nuova sequenza di domande";

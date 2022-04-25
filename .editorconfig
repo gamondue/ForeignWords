@@ -1,4 +1,4 @@
-# Rules in this file were initially inferred by Visual Studio IntelliCode from the D:\Develop\Git\ForeignWords codebase based on best match to current usage at 23/12/2021
+# Rules in this file were initially inferred by Visual Studio IntelliCode from the C:\OneDriveScuola\OneDrive - ispascalcomandini.gov.it\Develop\Cs\ForeignWords codebase based on best match to current usage at 10/04/2022
 # You can modify the rules from these initially generated values to suit your own policies
 # You can learn more about editorconfig here: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference
 [*.cs]
@@ -8,6 +8,15 @@
 
 #use soft tabs (spaces) for indentation
 indent_style = space
+
+#Formatting - indentation options
+
+#indent switch case contents.
+csharp_indent_case_contents = true
+#csharp_indent_case_contents_when_block
+csharp_indent_case_contents_when_block = true
+#indent switch labels
+csharp_indent_switch_labels = true
 
 #Formatting - new line options
 
@@ -20,8 +29,8 @@ csharp_new_line_before_open_brace = methods, control_blocks, types, properties
 
 #Formatting - organize using options
 
-#do not place System.* using directives before other using directives
-dotnet_sort_system_directives_first = false
+#sort System.* using directives alphabetically, and place them before other usings
+dotnet_sort_system_directives_first = true
 
 #Formatting - spacing options
 
@@ -71,11 +80,6 @@ csharp_style_expression_bodied_properties = false:suggestion
 
 #prefer the language keyword for member access expressions, instead of the type name, for types that have a keyword to represent them
 dotnet_style_predefined_type_for_member_access = true:suggestion
-
-#Style - Expression-level  preferences
-
-#prefer objects to not be initialized using object initializers
-dotnet_style_object_initializer = false:suggestion
 
 #Style - implicit and explicit types
 

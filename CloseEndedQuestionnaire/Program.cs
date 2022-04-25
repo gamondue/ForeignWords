@@ -1,9 +1,5 @@
 ﻿using System;
-using gamon; 
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using gamon;
 
 namespace CloseEndedQuestionnaire
 {
@@ -13,7 +9,7 @@ namespace CloseEndedQuestionnaire
         {
             Console.WriteLine("Questionnaire.\tVersione " +
                     System.Reflection.Assembly.GetExecutingAssembly().GetName().Version + "\r\n" +
-                    "Prof. Gabriele MONTI - ITT Blaise Pascal - Cesena\r\n" 
+                    "Prof. Gabriele MONTI - ITT Blaise Pascal - Cesena\r\n"
                     // 
                     // + "Mescola un insieme di 'Concetti' e 'Definizioni' in modo da creare\r\n un question loop.\r\n" +
                     //"Uso:\r\nQuestionLoop File NumeroAllievi\r\n" +

@@ -245,7 +245,7 @@ namespace gamon
             string[] parole = paroleCancellate.Substring(0, paroleCancellate.Length - 2).Replace("\r", "").Split('\n');
             Console.WriteLine("Creato il file " + File + "_Cloze_WORDS.txt \r\n (elenco mischiato delle parole omesse)");
             //MescolaArrayStringhe(parole);
-            Comuni.OrdinaArrayStringhe(parole);
+            ComuniGamonScuola.OrdinaArrayStringhe(parole);
             // metto in una sola stringa tutto l'array: 
             string file = String.Join(", ", parole);
             // gamon.FileDiTesto.VettoreInFile(File + "_Cloze_WORDS.txt", parole, false);

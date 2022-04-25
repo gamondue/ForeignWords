@@ -1,21 +1,25 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace gamon.ForeignWords
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
-        /// Punto di ingresso principale dell'applicazione.
+        ///  The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            /////////////////////////Application.Run(new frmAbout());
+#if !DEBUG
+            Application.Run(new gamon.frmAbout());
+#endif
             Application.Run(new frmEdit());
         }
     }

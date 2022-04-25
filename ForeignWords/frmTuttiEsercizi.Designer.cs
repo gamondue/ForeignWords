@@ -47,9 +47,10 @@
             // btnAbort
             // 
             this.btnAbort.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAbort.Location = new System.Drawing.Point(542, 281);
+            this.btnAbort.Location = new System.Drawing.Point(632, 324);
+            this.btnAbort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAbort.Name = "btnAbort";
-            this.btnAbort.Size = new System.Drawing.Size(112, 28);
+            this.btnAbort.Size = new System.Drawing.Size(131, 32);
             this.btnAbort.TabIndex = 7;
             this.btnAbort.Text = "Scegli";
             this.btnAbort.UseVisualStyleBackColor = true;
@@ -58,9 +59,10 @@
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSave.Location = new System.Drawing.Point(14, 281);
+            this.btnSave.Location = new System.Drawing.Point(16, 324);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(112, 28);
+            this.btnSave.Size = new System.Drawing.Size(131, 32);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Salva modifiche";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -73,7 +75,7 @@
             this.grdDati.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -82,52 +84,56 @@
             this.grdDati.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdDati.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grdDati.Location = new System.Drawing.Point(14, 38);
+            this.grdDati.Location = new System.Drawing.Point(16, 44);
+            this.grdDati.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grdDati.Name = "grdDati";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdDati.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.grdDati.Size = new System.Drawing.Size(641, 237);
+            this.grdDati.Size = new System.Drawing.Size(748, 273);
             this.grdDati.TabIndex = 5;
-            this.grdDati.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDati_CellValueChanged);
             this.grdDati.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDati_CellClick);
+            this.grdDati.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDati_CellContentClick);
+            this.grdDati.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDati_CellValueChanged);
             this.grdDati.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdDati_RowHeaderMouseDoubleClick);
             this.grdDati.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.grdDati_KeyPress);
-            this.grdDati.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdDati_CellContentClick);
             // 
             // txtCodice
             // 
-            this.txtCodice.Location = new System.Drawing.Point(14, 12);
+            this.txtCodice.Location = new System.Drawing.Point(16, 14);
+            this.txtCodice.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCodice.Name = "txtCodice";
             this.txtCodice.ReadOnly = true;
-            this.txtCodice.Size = new System.Drawing.Size(52, 20);
+            this.txtCodice.Size = new System.Drawing.Size(60, 23);
             this.txtCodice.TabIndex = 9;
             // 
             // txtEsercizio
             // 
-            this.txtEsercizio.Location = new System.Drawing.Point(74, 12);
+            this.txtEsercizio.Location = new System.Drawing.Point(86, 14);
+            this.txtEsercizio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEsercizio.Name = "txtEsercizio";
             this.txtEsercizio.ReadOnly = true;
-            this.txtEsercizio.Size = new System.Drawing.Size(581, 20);
+            this.txtEsercizio.Size = new System.Drawing.Size(677, 23);
             this.txtEsercizio.TabIndex = 8;
             // 
             // btnCancella
             // 
             this.btnCancella.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCancella.Location = new System.Drawing.Point(278, 281);
+            this.btnCancella.Location = new System.Drawing.Point(324, 324);
+            this.btnCancella.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCancella.Name = "btnCancella";
-            this.btnCancella.Size = new System.Drawing.Size(112, 28);
+            this.btnCancella.Size = new System.Drawing.Size(131, 32);
             this.btnCancella.TabIndex = 10;
             this.btnCancella.Text = "Cancella esercizio";
             this.btnCancella.UseVisualStyleBackColor = true;
@@ -135,10 +141,10 @@
             // 
             // frmTuttiEsercizi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(665, 321);
+            this.ClientSize = new System.Drawing.Size(776, 370);
             this.Controls.Add(this.btnCancella);
             this.Controls.Add(this.txtCodice);
             this.Controls.Add(this.txtEsercizio);
@@ -146,6 +152,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.grdDati);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmTuttiEsercizi";
             this.Text = "Scelta dell\' esercizio da svolgere";
             ((System.ComponentModel.ISupportInitialize)(this.grdDati)).EndInit();

@@ -1,9 +1,5 @@
-﻿using gamon;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using gamon;
 
 namespace QuestionLoopConsole
 {
@@ -13,7 +9,7 @@ namespace QuestionLoopConsole
         {
             Console.WriteLine("QuestionLoop.\tVersione " +
                 System.Reflection.Assembly.GetExecutingAssembly().GetName().Version + "\r\n" +
-                "Prof. Gabriele MONTI - ITT Blaise Pascal - Cesena\r\n" + 
+                "Prof. Gabriele MONTI - ITT Blaise Pascal - Cesena\r\n" +
                 "Mescola un insieme di 'Concetti' e 'Definizioni' in modo da creare\r\n un question loop.\r\n" +
                 "Uso:\r\nQuestionLoop File NumeroAllievi\r\n" +
                 "     File: percorso e nome del file da usare\r\n" +
@@ -26,12 +22,13 @@ namespace QuestionLoopConsole
                 "     Il programma usa tutte le domande che trova nel file\r\n"
                 );
             if (args.Length == 0)
-                Comuni.QuestionLoop();
+                ComuniGamonScuola.QuestionLoop();
             else if (args.Length == 1)
-                Comuni.QuestionLoop(int.Parse(args[0]));
+                ComuniGamonScuola.QuestionLoop(int.Parse(args[0]));
             else if (args.Length == 2)
-                Comuni.QuestionLoop(args[0], int.Parse(args[1]));
+                ComuniGamonScuola.QuestionLoop(args[0], int.Parse(args[1]));
             Console.WriteLine("\r\nFine programma.");
         }
     }
 }
+

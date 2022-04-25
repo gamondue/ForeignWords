@@ -52,6 +52,7 @@ namespace gamon.ForeignWords
             ((System.ComponentModel.ISupportInitialize)(this.grdEsercizio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindSVerbiTutti)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindSVerbiEsercizio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -60,18 +61,20 @@ namespace gamon.ForeignWords
             // 
             // txtEsercizio
             // 
-            this.txtEsercizio.Location = new System.Drawing.Point(70, 10);
+            this.txtEsercizio.Location = new System.Drawing.Point(82, 12);
+            this.txtEsercizio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtEsercizio.Name = "txtEsercizio";
             this.txtEsercizio.ReadOnly = true;
-            this.txtEsercizio.Size = new System.Drawing.Size(581, 20);
+            this.txtEsercizio.Size = new System.Drawing.Size(677, 23);
             this.txtEsercizio.TabIndex = 2;
             // 
             // btnSave
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSave.Location = new System.Drawing.Point(12, 288);
+            this.btnSave.Location = new System.Drawing.Point(14, 332);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(46, 27);
+            this.btnSave.Size = new System.Drawing.Size(54, 31);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Salva";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -80,9 +83,10 @@ namespace gamon.ForeignWords
             // btnAbort
             // 
             this.btnAbort.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAbort.Location = new System.Drawing.Point(546, 288);
+            this.btnAbort.Location = new System.Drawing.Point(637, 332);
+            this.btnAbort.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnAbort.Name = "btnAbort";
-            this.btnAbort.Size = new System.Drawing.Size(105, 27);
+            this.btnAbort.Size = new System.Drawing.Size(122, 31);
             this.btnAbort.TabIndex = 4;
             this.btnAbort.Text = "Esci senza salvare";
             this.btnAbort.UseVisualStyleBackColor = true;
@@ -91,14 +95,14 @@ namespace gamon.ForeignWords
             // grdEsercizio
             // 
             this.grdEsercizio.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.grdEsercizio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdEsercizio.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdEsercizio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdEsercizio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -107,39 +111,42 @@ namespace gamon.ForeignWords
             this.grdEsercizio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdEsercizio.DefaultCellStyle = dataGridViewCellStyle2;
-            this.grdEsercizio.Location = new System.Drawing.Point(3, 0);
+            this.grdEsercizio.Location = new System.Drawing.Point(4, 0);
+            this.grdEsercizio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grdEsercizio.Name = "grdEsercizio";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdEsercizio.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.grdEsercizio.Size = new System.Drawing.Size(322, 247);
+            this.grdEsercizio.Size = new System.Drawing.Size(375, 285);
             this.grdEsercizio.TabIndex = 5;
             // 
             // txtCodice
             // 
-            this.txtCodice.Location = new System.Drawing.Point(12, 10);
+            this.txtCodice.Location = new System.Drawing.Point(14, 12);
+            this.txtCodice.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtCodice.Name = "txtCodice";
             this.txtCodice.ReadOnly = true;
-            this.txtCodice.Size = new System.Drawing.Size(52, 20);
+            this.txtCodice.Size = new System.Drawing.Size(60, 23);
             this.txtCodice.TabIndex = 6;
             // 
             // btnDestra
             // 
             this.btnDestra.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDestra.Location = new System.Drawing.Point(285, 287);
+            this.btnDestra.Location = new System.Drawing.Point(332, 331);
+            this.btnDestra.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnDestra.Name = "btnDestra";
-            this.btnDestra.Size = new System.Drawing.Size(32, 34);
+            this.btnDestra.Size = new System.Drawing.Size(37, 39);
             this.btnDestra.TabIndex = 7;
             this.btnDestra.Text = ">";
             this.btnDestra.UseVisualStyleBackColor = true;
@@ -148,9 +155,10 @@ namespace gamon.ForeignWords
             // btnDestra2
             // 
             this.btnDestra2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDestra2.Location = new System.Drawing.Point(247, 286);
+            this.btnDestra2.Location = new System.Drawing.Point(288, 330);
+            this.btnDestra2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnDestra2.Name = "btnDestra2";
-            this.btnDestra2.Size = new System.Drawing.Size(32, 34);
+            this.btnDestra2.Size = new System.Drawing.Size(37, 39);
             this.btnDestra2.TabIndex = 8;
             this.btnDestra2.Text = ">>";
             this.btnDestra2.UseVisualStyleBackColor = true;
@@ -159,9 +167,10 @@ namespace gamon.ForeignWords
             // btnSinistra
             // 
             this.btnSinistra.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSinistra.Location = new System.Drawing.Point(323, 287);
+            this.btnSinistra.Location = new System.Drawing.Point(377, 331);
+            this.btnSinistra.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSinistra.Name = "btnSinistra";
-            this.btnSinistra.Size = new System.Drawing.Size(32, 34);
+            this.btnSinistra.Size = new System.Drawing.Size(37, 39);
             this.btnSinistra.TabIndex = 9;
             this.btnSinistra.Text = "<";
             this.btnSinistra.UseVisualStyleBackColor = true;
@@ -170,9 +179,10 @@ namespace gamon.ForeignWords
             // btnSinistra2
             // 
             this.btnSinistra2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSinistra2.Location = new System.Drawing.Point(361, 287);
+            this.btnSinistra2.Location = new System.Drawing.Point(421, 331);
+            this.btnSinistra2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnSinistra2.Name = "btnSinistra2";
-            this.btnSinistra2.Size = new System.Drawing.Size(32, 34);
+            this.btnSinistra2.Size = new System.Drawing.Size(37, 39);
             this.btnSinistra2.TabIndex = 10;
             this.btnSinistra2.Text = "<<";
             this.btnSinistra2.UseVisualStyleBackColor = true;
@@ -180,10 +190,11 @@ namespace gamon.ForeignWords
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(12, 36);
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(14, 42);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -193,20 +204,21 @@ namespace gamon.ForeignWords
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.grdEsercizio);
-            this.splitContainer1.Size = new System.Drawing.Size(639, 250);
-            this.splitContainer1.SplitterDistance = 307;
+            this.splitContainer1.Size = new System.Drawing.Size(746, 288);
+            this.splitContainer1.SplitterDistance = 358;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 11;
             // 
             // grdTutti
             // 
-            this.grdTutti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdTutti.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grdTutti.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.grdTutti.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -215,31 +227,32 @@ namespace gamon.ForeignWords
             this.grdTutti.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grdTutti.DefaultCellStyle = dataGridViewCellStyle5;
             this.grdTutti.Location = new System.Drawing.Point(0, 0);
+            this.grdTutti.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.grdTutti.Name = "grdTutti";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grdTutti.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.grdTutti.Size = new System.Drawing.Size(305, 247);
+            this.grdTutti.Size = new System.Drawing.Size(356, 285);
             this.grdTutti.TabIndex = 0;
             // 
             // frmEsercizio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(663, 323);
+            this.ClientSize = new System.Drawing.Size(774, 373);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.btnSinistra2);
             this.Controls.Add(this.btnSinistra);
@@ -250,6 +263,7 @@ namespace gamon.ForeignWords
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtEsercizio);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "frmEsercizio";
             this.Text = "Configurazioni esercizio";
             this.Load += new System.EventHandler(this.frmEsercizio_Load);
@@ -258,6 +272,7 @@ namespace gamon.ForeignWords
             ((System.ComponentModel.ISupportInitialize)(this.bindSVerbiEsercizio)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdTutti)).EndInit();
             this.ResumeLayout(false);

@@ -1,9 +1,5 @@
-﻿using gamon;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using gamon;
 
 namespace ClozeConsole
 {
@@ -17,10 +13,10 @@ namespace ClozeConsole
                 "Toglie da un testo delle parole sostituendole con '_'\r\ne salvando in un file (*_Cloze.txt).\r\n" +
                 "Raccoglie le parole tolte in un altro file (*_Cloze_SOLUTION.txt).\r\n" +
                 "Mescola le parole tolte, memorizzandole in un terzo file (*_Cloze_WORDS.txt).\r\n" +
-                "Uso:\r\n" + 
+                "Uso:\r\n" +
                 "Cloze File NumeroParole\r\n" +
                 "     File è percorso e nome del file originale da usare\r\n" +
-                "     NumeroParole è il numero di parole oltre il quale si toglie una parola\r\n" +  
+                "     NumeroParole è il numero di parole oltre il quale si toglie una parola\r\n" +
                 "     dal testo originale\r\n" +
                 "Cloze NumeroParole\r\n" +
                 "     Il file usato è 'testo.txt'\r\n" +
@@ -30,12 +26,13 @@ namespace ClozeConsole
                 "     Il programma usa tutte le domande che trova nel file\r\n"
                 );
             if (args.Length == 0)
-                Comuni.Cloze();
+                ComuniGamonScuola.Cloze();
             else if (args.Length == 1)
-                Comuni.Cloze(int.Parse(args[0]));
+                ComuniGamonScuola.Cloze(int.Parse(args[0]));
             else if (args.Length == 2)
-                Comuni.Cloze(args[0], int.Parse(args[1]));
+                ComuniGamonScuola.Cloze(args[0], int.Parse(args[1]));
             Console.WriteLine("\r\nFine programma.");
         }
     }
 }
+

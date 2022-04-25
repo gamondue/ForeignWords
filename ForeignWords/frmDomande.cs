@@ -20,11 +20,11 @@ namespace gamon.ForeignWords
         public frmDomande(frmVerbi mainForm)
         {
             InitializeComponent();
-            Common.caricaLinguaInControlli(this);
+            Global.caricaLinguaInControlli(this);
 
             this.mainForm = mainForm;
 
-            Common.LibDB.DataSetVerbi(1, ref dadapVerbi, ref dSet);  // codice 1 = esercizio di default = tutti i verbi
+            Global.LibDB.DataSetVerbi(1, ref dadapVerbi, ref dSet);  // codice 1 = esercizio di default = tutti i verbi
             DataTable dTVerbi = dSet.Tables[0];
 
             bindSVerbi.DataSource = dTVerbi;
@@ -39,7 +39,7 @@ namespace gamon.ForeignWords
 
         private void bntOK_Click(object sender, EventArgs e)
         {
-            Common.LibDB.UpdateVerbi(1, ref dadapVerbi, ref dSet);
+            Global.LibDB.UpdateVerbi(1, ref dadapVerbi, ref dSet);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -49,7 +49,7 @@ namespace gamon.ForeignWords
             // se sono state fatte modifiche nella tabella, avverte che così verranno perse
             if (dSet.Tables[0].GetChanges() != null)
             {
-                if (MessageBox.Show(Common.Captions["messModifiche"].ToString(),
+                if (MessageBox.Show(Global.Captions["messModifiche"].ToString(),
                                     "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 {
                     return;

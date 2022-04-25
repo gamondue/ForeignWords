@@ -1,31 +1,21 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using gamon.ForeignWords;
 
 namespace gamon.ForeignWords
 {
     public partial class frmNuovoRandom : Form
     {
-        Random rnd;
-        bool mescola = false;
         public frmNuovoRandom()
         {
             InitializeComponent();
-            Common.caricaLinguaInControlli(this);
-        }
-        public Random RandomSeq
-        {
-            get { return rnd; }
-        }
-        private void frmNuovoRandom_Load(object sender, EventArgs e)
-        {
+            Global.caricaLinguaInControlli(this);
             rdRandom.Checked = true;
         }
+        Random rnd;
+        public Random RandomSeq {
+            get { return rnd; }
+        }
+        bool mescola = false;
         public bool DeveMescolare
         {
             get { return mescola; }
@@ -43,7 +33,7 @@ namespace gamon.ForeignWords
             if (rdNulla.Checked)
             {
                 rnd = new Random(1);
-            }
+            }   
             this.Close();
         }
         private void frmNuovoRandom_KeyPress(object sender, KeyPressEventArgs e)
@@ -57,19 +47,32 @@ namespace gamon.ForeignWords
         }
         private void rdRandom_CheckedChanged(object sender, EventArgs e)
         {
-            mescola = true;
-            txtSeme.Enabled = false;
+            if (rdRandom.Checked)
+            {
+                mescola = true;
+                txtSeme.Enabled = false;
+            }
         }
         private void rdDeterminata_CheckedChanged(object sender, EventArgs e)
         {
-            mescola = true;
-            txtSeme.Enabled = true;
-            txtSeme.Focus();
+            if (rdDeterminata.Checked)
+            {
+                mescola = true;
+                txtSeme.Enabled = true;
+                txtSeme.Focus();
+            }
         }
         private void rdNulla_CheckedChanged(object sender, EventArgs e)
         {
-            mescola = false;
-            txtSeme.Enabled = false;
+            if (rdNulla.Checked)
+            {
+                mescola = false;
+                txtSeme.Enabled = false;
+            }
+        }
+        private void frmNuovoRandom_Load(object sender, EventArgs e)
+        {
+            rdRandom.Checked = true;
         }
     }
 }
