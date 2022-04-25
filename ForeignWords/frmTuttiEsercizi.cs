@@ -21,7 +21,7 @@ namespace gamon.ForeignWords
         public frmTuttiEsercizi(bool cercaNomiSimili, int CodEsercizio, string esercizio, frmVerbi frmPadre)
         {
             InitializeComponent();
-            Global.caricaLinguaInControlli(this);
+            Common.caricaLinguaInControlli(this);
 
             if (cercaNomiSimili) this.Text = "Salvataggio dell'esercizio degli errori";
             codEsercizio = CodEsercizio;
@@ -37,7 +37,7 @@ namespace gamon.ForeignWords
             // in fondo un numero
             if (esercizio != "")
             {
-                DbConnection conn = Global.LibDB.Connetti();
+                DbConnection conn = Common.LibDB.Connetti();
 
                 DbCommand comm = conn.CreateCommand();
                 // conteggio degli esercizi che si chiamano come la stringa passata e creazione del nome di default
@@ -66,7 +66,7 @@ namespace gamon.ForeignWords
         private void collegaGriglia(){
 
             // DataSet e griglia
-            Global.LibDB.DataSetEsercizi(codEsercizio, ref dadapEsercizi, ref dSetEsercizi);
+            Common.LibDB.DataSetEsercizi(codEsercizio, ref dadapEsercizi, ref dSetEsercizi);
 
             DataTable dTEsercizi = dSetEsercizi.Tables[0];
 
@@ -78,7 +78,7 @@ namespace gamon.ForeignWords
 
         private void bntOK_Click(object sender, EventArgs e)
         {
-            DbConnection conn = Global.LibDB.Connetti();
+            DbConnection conn = Common.LibDB.Connetti();
             DbCommand comm = conn.CreateCommand();
 
             // gestione del codice del vecchio o del nuovo esercizio
@@ -162,7 +162,7 @@ namespace gamon.ForeignWords
                                        "Conferma l'operazione", "Cancella", 
                                        MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        DbConnection conn = Global.LibDB.Connetti();
+                        DbConnection conn = Common.LibDB.Connetti();
                         DbCommand comm = conn.CreateCommand();
                         comm.CommandText = "DELETE FROM Esercizi" +
                                             " WHERE IdEsercizio ='" +

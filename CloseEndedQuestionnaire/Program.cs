@@ -27,7 +27,7 @@ namespace CloseEndedQuestionnaire
                     //"     Il programma usa tutte le domande che trova nel file\r\n"
                     );
             if (args.Length == 0)
-                Comuni.Questionnaire("questionnaire.txt");
+                ComuniGamonScuola.Questionnaire("questionnaire.tsv", 1232122, 25, 60);
             //else if (args.Length == 1)
             //    Comuni.Questionnaire(int.Parse(args[0]));
             //else if (args.Length == 2)

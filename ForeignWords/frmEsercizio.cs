@@ -24,7 +24,7 @@ namespace gamon.ForeignWords
         public frmEsercizio(int CodEsercizio, string esercizio, frmVerbi mainForm)
         {
             InitializeComponent();
-            Global.caricaLinguaInControlli(this);
+            Common.caricaLinguaInControlli(this);
 
             this.mainForm = mainForm;
             
@@ -33,7 +33,7 @@ namespace gamon.ForeignWords
 
             if (CodEsercizio == 1)
             {
-                MessageBox.Show(Global.Captions["messEsercizio1"].ToString());
+                MessageBox.Show(Common.Captions["messEsercizio1"].ToString());
                 //MessageBox.Show("L'esercizio di codice 1 contiene tutti i verbi. Non si può modificare!");
                 return;
             }
@@ -41,7 +41,7 @@ namespace gamon.ForeignWords
             txtCodice.Text = CodEsercizio.ToString();
 
             // DataSet e griglia per tutti i verbi
-            Global.LibDB.DataSetVerbiCheNonCiSono(CodEsercizio, ref dadapVerbiTutti, ref dSetTutti);  // codice 1 = esercizio di default = tutti i verbi
+            Common.LibDB.DataSetVerbiCheNonCiSono(CodEsercizio, ref dadapVerbiTutti, ref dSetTutti);  // codice 1 = esercizio di default = tutti i verbi
             DataTable dTVerbiTutti = dSetTutti.Tables[0];
 
             bindSVerbiTutti.DataSource = dTVerbiTutti;
@@ -52,7 +52,7 @@ namespace gamon.ForeignWords
             //grdTutti.Columns[6].Visible = false;
 
             // DataSet e griglia per i verbi di questo esercizio
-            Global.LibDB.DataSetVerbi(CodEsercizio, ref dadapVerbiEsercizio, ref dSetEsercizio);  // codice 1 = esercizio di default = tutti i verbi
+            Common.LibDB.DataSetVerbi(CodEsercizio, ref dadapVerbiEsercizio, ref dSetEsercizio);  // codice 1 = esercizio di default = tutti i verbi
             DataTable dTVerbiEsercizio = dSetEsercizio.Tables[0];
 
             bindSVerbiEsercizio.DataSource = dTVerbiEsercizio;
@@ -139,7 +139,7 @@ namespace gamon.ForeignWords
         private void btnOK_Click(object sender, EventArgs e)
         {
             // cancella tutte le righe che appartengono a questo esercizio
-            DbConnection conn = Global.LibDB.Connetti();
+            DbConnection conn = Common.LibDB.Connetti();
             DbCommand comm = conn.CreateCommand();
             comm.CommandText = "DELETE FROM VerbiEsercizi WHERE (IdEsercizio =" + codEsercizio + ");";
             comm.ExecuteNonQuery();

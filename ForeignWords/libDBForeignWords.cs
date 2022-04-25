@@ -223,12 +223,12 @@ namespace gamon.ForeignWords
                             conn = new SQLiteConnection("Data Source=" + nomeEPathDatabase);
                             break;
                         }
-                    case TipoDB.Access:
-                        {
-                            conn = new System.Data.OleDb.OleDbConnection(
-                                "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + nomeDatabase + ".accdb");
-                           break;
-                        }
+                    //case TipoDB.Access:
+                    //    {
+                    //        conn = new System.Data.OleDb.OleDbConnection(
+                    //            "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + nomeDatabase + ".accdb");
+                    //       break;
+                    //    }
 
                     default:
                         {
@@ -261,8 +261,8 @@ namespace gamon.ForeignWords
         {
             DbConnection conn = Connetti();
             string query = "SELECT IdVerb, Infinitive, PastParticiple, PastTense"; 
-            if (Global.LinguaCorrente != "English")
-                query += ", Inf" + Global.LinguaCorrente;
+            if (Common.LinguaCorrente != "English")
+                query += ", Inf" + Common.LinguaCorrente;
             query += " FROM VerbiInglesi, VerbiEsercizi" + 
             " WHERE (VerbiInglesi.IdVerb = VerbiEsercizi.IdVerbo AND VerbiEsercizi.IdEsercizio=" +
             CodEsercizio + ")" +

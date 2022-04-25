@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace gamon.ForeignWords
 {
-    public static class Global
+    public static class Common
     {
         private static string linguaCorrente;
 
@@ -18,11 +18,11 @@ namespace gamon.ForeignWords
         #region proprietà
         public static string LinguaCorrente
         {
-          get { return Global.linguaCorrente; }
+          get { return Common.linguaCorrente; }
           set { 
-              Global.linguaCorrente = value;
+              Common.linguaCorrente = value;
               lingue = LibDB.LinguePresenti();
-              Captions = LibDB.Prompts(Global.LinguaCorrente);
+              Captions = LibDB.Prompts(Common.LinguaCorrente);
           }
         }
 
@@ -40,7 +40,7 @@ namespace gamon.ForeignWords
         public static void caricaLinguaInControlli(Form form)
         {
             // per ogni controllo o menu indicato nel database delle caption
-            foreach (object oCaption in Global.Captions)
+            foreach (object oCaption in Common.Captions)
             {
                 DictionaryEntry caption = (DictionaryEntry)oCaption;
                 // i menù vengono trattati in un modo diverso
@@ -69,7 +69,7 @@ namespace gamon.ForeignWords
         public static void caricaLinguaInMenu(MenuStrip menu)
         {
             // per ogni controllo o menu indicato nel database delle caption
-            foreach (object oCaption in Global.Captions)
+            foreach (object oCaption in Common.Captions)
             {
                 DictionaryEntry caption = (DictionaryEntry)oCaption;
                 // se è un menù 

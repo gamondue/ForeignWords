@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForeignWords", "ForeignWords\ForeignWords.csproj", "{2DBA9E7C-6CBB-44FD-8674-EE6F85B705F6}"
 EndProject
@@ -17,16 +17,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClozeConsole", "ClozeConsol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloseEndedQuestionnaire", "CloseEndedQuestionnaire\CloseEndedQuestionnaire.csproj", "{3C603518-8706-4778-8F7C-B6D2080B2396}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F3716A97-6D0B-484A-8601-A50FEE0A2DCE}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\CalcoloZ-Git\Comuni\Comuni.projitems*{b077657a-78ba-4ea9-9986-595117e496ab}*SharedItemsImports = 4
-		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{b077657a-78ba-4ea9-9986-595117e496ab}*SharedItemsImports = 4
-		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{a1492e4f-95b0-4d55-a933-f6a18e366dd8}*SharedItemsImports = 13
-		..\CalcoloZ-Git\Comuni\Comuni.projitems*{c6aed2a3-bf9f-4677-beac-bc2582e36455}*SharedItemsImports = 13
-		..\CalcoloZ-Git\Comuni\Comuni.projitems*{3c603518-8706-4778-8f7c-b6d2080b2396}*SharedItemsImports = 4
-		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{3c603518-8706-4778-8f7c-b6d2080b2396}*SharedItemsImports = 4
 		..\CalcoloZ-Git\Comuni\Comuni.projitems*{1ebd7e71-5e1b-4f94-9129-13477d34493e}*SharedItemsImports = 4
 		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{1ebd7e71-5e1b-4f94-9129-13477d34493e}*SharedItemsImports = 4
+		..\CalcoloZ-Git\Comuni\Comuni.projitems*{3c603518-8706-4778-8f7c-b6d2080b2396}*SharedItemsImports = 4
+		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{3c603518-8706-4778-8f7c-b6d2080b2396}*SharedItemsImports = 4
+		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{a1492e4f-95b0-4d55-a933-f6a18e366dd8}*SharedItemsImports = 13
+		..\CalcoloZ-Git\Comuni\Comuni.projitems*{b077657a-78ba-4ea9-9986-595117e496ab}*SharedItemsImports = 4
+		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{b077657a-78ba-4ea9-9986-595117e496ab}*SharedItemsImports = 4
+		..\CalcoloZ-Git\Comuni\Comuni.projitems*{c6aed2a3-bf9f-4677-beac-bc2582e36455}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,5 +101,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8B90FF6-104C-4569-8E78-566A2FD30391}
 	EndGlobalSection
 EndGlobal

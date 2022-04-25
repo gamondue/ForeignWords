@@ -4,7 +4,7 @@ using System.Text;
 
 namespace gamon
 {
-    public static partial class Comuni
+    public static partial class ComuniGamonScuola
     {
         static Proposizione[] definizioni;
         private static int nRighePerEntryInQuestionLoop = 9;
@@ -245,7 +245,7 @@ namespace gamon
             string[] parole = paroleCancellate.Substring(0, paroleCancellate.Length - 2).Replace("\r", "").Split('\n');
             Console.WriteLine("Creato il file " + File + "_Cloze_WORDS.txt \r\n (elenco mischiato delle parole omesse)");
             //MescolaArrayStringhe(parole);
-            OrdinaArrayStringhe(parole);
+            Comuni.OrdinaArrayStringhe(parole);
             // metto in una sola stringa tutto l'array: 
             string file = String.Join(", ", parole);
             // gamon.FileDiTesto.VettoreInFile(File + "_Cloze_WORDS.txt", parole, false);
@@ -277,82 +277,138 @@ namespace gamon
         {
             public string AnswerText;
             public bool CheckedIsCorrect;
+            public double PercentageLostIfWrong;
         }
 
         public class QuestionnaireQuestion
         {
             public QuestionType Type;
             public string Question;
-            public List<Answer> Answers; 
+            public List<Answer> Answers;
         }
 
         public enum QuestionType
         {
             Exclusive,
             Multiple,
-            NonDefined, 
+            NonQuestion, 
         }
 
-        public static uint Questionnaire(string File)
+        public static uint Questionnaire(string File, int seed, int nDifferentTests, int nLinesPerSheet)
         {
             string quadrato = "□";
             string tondo = "⃝";
-            string[] originaleArray = gamon.FileDiTesto.FileInVettore(File);
+            string quadratoPieno = "X";
+            string tondoPieno = "X";
+            //string quadrato = "&£";
+            //string tondo = "£$";
 
-            List<QuestionnaireQuestion> questionario = new List<QuestionnaireQuestion>(); 
-            
-            int nQuestion = 0; 
+            string[,] originalMatrix = gamon.FileDiTesto.FileInMatrice(File,'\t');
+
+            List<QuestionnaireQuestion> questionario = new List<QuestionnaireQuestion>();
+
+            int nQuestion = 0; // row in the array of strings taken from the text file
             QuestionnaireQuestion q = null;
             string r = ""; 
-            while (nQuestion < originaleArray.Length - 1)
-            { 
-                string riga = originaleArray[nQuestion];
-                QuestionType tipo = TipoDomanda(riga);
+            while (nQuestion < originalMatrix.GetLength(0)) 
+            {
+                string codice = originalMatrix[nQuestion, 0].Trim();
+                string domandaORisposta = originalMatrix[nQuestion, 1].Trim();
+                double percentuale = Comuni.doub(originalMatrix[nQuestion, 2]);
+                QuestionType tipo = TipoDomanda(codice);
                 Answer risp = new Answer();
-                if (!(tipo == QuestionType.NonDefined))
-                { 
+                if (!(tipo == QuestionType.NonQuestion))
+                {   // nuova domanda
                     if (q != null)
                     {
-                        questionario.Add(q); 
+                        questionario.Add(q);
                     }
                     q = new QuestionnaireQuestion();
                     q.Type = tipo;
-                    nQuestion++;
-                    riga = originaleArray[nQuestion];
-                    if (riga != "")
-                        q.Question = riga;
+                    if (domandaORisposta != "")
+                        q.Question = domandaORisposta;
                     q.Answers = new List<Answer>();
-                    nQuestion++;
-                    r = originaleArray[nQuestion].Trim();
-                    if (r.Substring(1, 1) == "X" || r.Substring(1, 1) == "x")
-                    {
-                        risp.CheckedIsCorrect = true;
-                        r = r.Substring(2).Trim();
-                    }
-                    else
-                        risp.CheckedIsCorrect = false;
-                    risp.AnswerText = r; 
                 }
-                if (r != "" && TipoDomanda(r) == QuestionType.NonDefined)
-                    q.Answers.Add(risp);
+                else
+                {   // nuova risposta
+                    if (domandaORisposta != "")
+                    { 
+                        risp.AnswerText = domandaORisposta;
+                        if (codice == "X" || codice == "x")
+                        {
+                            risp.CheckedIsCorrect = true;
+                        }
+                        else
+                        {
+                            risp.CheckedIsCorrect = false;
+                        }
+                        risp.PercentageLostIfWrong = percentuale; 
+                        q.Answers.Add(risp);
+                    }
+                }
                 nQuestion++;
             }
 
-            string file = "";
-            // creazione questionario
-            foreach (QuestionnaireQuestion dom in questionario)
+            // creazione questionari
+            if (System.IO.File.Exists(File + "_QUEST.txt"))
+                System.IO.File.Delete(File + "_QUEST.txt");
+            if (System.IO.File.Exists(File + "_QUEST_CORR.txt"))
+                System.IO.File.Delete(File + "_QUEST_CORR.txt");
+
+            Comuni.rng = new Random(seed);
+            char formFeed = (char)0x0C;
+
+            for (int qu = 0; qu < nDifferentTests; qu++)
             {
-                string segno = "";
-                if (dom.Type == QuestionType.Exclusive)
-                    segno = tondo;
-                else
-                    segno = quadrato;
-                file += dom.Question + "\r\n";
-                foreach (Answer answ in dom.Answers)
-                    file += segno + " " + answ.AnswerText.Trim() + "\r\n";
-                //file += "\r\n";
+                Comuni.MescolaLista(questionario);
+
+                string fileQuestionario = "Numero domande: " + questionario.Count +
+                        "\t" + seed.ToString().Trim() + (qu + 1).ToString("00").Trim() + "\r\n";
+                string fileCorrezione = seed.ToString().Trim() + (qu + 1).ToString("00").Trim() + "\r\n";
+
+                int rigaAttuale = 1;
+                foreach (QuestionnaireQuestion dom in questionario)
+                {
+                    string segno = "";
+                    if (dom.Type == QuestionType.Exclusive)
+                        segno = tondo;
+                    else
+                        segno = quadrato;
+                    fileQuestionario += dom.Question + "\r\n";
+                    fileCorrezione += dom.Question + "\r\n";
+                    rigaAttuale++;
+                    //// controlla se ci sta la prossima domanda; se no va a prossimo foglio
+                    // SE UNA RIPOSTA PRENDE PIù DI UNA RIGA, IL MECCANISMO QUI SOTTO NON FUNZIONA
+                    // COMMENTATO
+                    //if (rigaAttuale + dom.Answers.Count > nLinesPerSheet)
+                    //{
+                    //    // aggiunge form feed per cambiare foglio
+                    //    file += formFeed;
+                    //    gamon.FileDiTesto.StringaInFile(File + "_QUEST.txt", file, true);
+                    //}
+                    // aggiunge tutte le risposte della domanda
+                    Comuni.MescolaLista(dom.Answers);
+                    foreach (Answer answ in dom.Answers)
+                        if (answ.AnswerText != null)
+                        {
+                            string correzione ="";
+                            if (answ.CheckedIsCorrect)
+                                correzione = quadratoPieno + " ";
+                            correzione += answ.PercentageLostIfWrong.ToString("0.##") + " "; 
+                            fileQuestionario += segno + " " + answ.AnswerText.Trim() + "\r\n";
+                            fileCorrezione += correzione + segno + " " + answ.AnswerText.Trim() + "\r\n";
+                        }
+                    rigaAttuale++;
+                    fileQuestionario += "\r\n";
+                    fileCorrezione += "\r\n";
+                    rigaAttuale++;
+                }
+                // aggiunge form feed per cambiare foglio
+                fileQuestionario += formFeed;
+                fileCorrezione += formFeed;
+                gamon.FileDiTesto.StringaInFile(File + "_QUEST.txt", fileQuestionario, true);
+                gamon.FileDiTesto.StringaInFile(File + "_QUEST_CORR.txt", fileCorrezione, true);
             }
-            gamon.FileDiTesto.StringaInFile(File + "_QUEST.txt", file, false);
             return 0; 
         }
 
@@ -360,10 +416,10 @@ namespace gamon
         {
             if (rigaText == "M" || rigaText == "m")
                 return QuestionType.Multiple;
-            else if (rigaText == "X" || rigaText == "x")
+            else if (rigaText == "E" || rigaText == "e")
                 return QuestionType.Exclusive;
             else
-                return QuestionType.NonDefined; 
+                return QuestionType.NonQuestion; 
         }
     }
 }
