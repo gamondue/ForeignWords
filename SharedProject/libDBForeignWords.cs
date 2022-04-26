@@ -21,13 +21,13 @@ namespace gamon.ForeignWords
 
         string nomeDatabase = "dbForeignWords";
         string nomeEPathDatabase;
+        public string pathDati;
 
         public libDBForeignWords()
         {
-            string pathDati;
 #if DEBUG
             // aggiustare questa path se nel computer di sviluppo la path dei database non è questa! 
-            pathDati = @"C:\OneDriveScuola\OneDrive - ispascalcomandini.gov.it\Develop\Cs\ForeignWords\Database";
+            pathDati = @"D:\Develop\Git\ForeignWords\Database";
 #else
             //pathDati= Application.LocalUserAppDataPath;
             //// toglie la versione dalla path e va nella cartella di ForeignWords
@@ -428,6 +428,29 @@ namespace gamon.ForeignWords
             dAdapter.InsertCommand = commBuilder.GetInsertCommand();
             dAdapter.DeleteCommand = commBuilder.GetDeleteCommand();
         }
+        public void DataSetInfinitiDeiVerbi(ref DbDataAdapter dAdapter, ref DataSet dSet)
+        {
+            DbConnection conn = Connetti();
+            DbCommandBuilder commBuilder = null;
+            //string query = "SELECT * FROM VerbiInglesi WHERE language IN( " + lingue + ");";
+            string query = "SELECT * FROM VerbiInglesi;";
+            dAdapter = new SQLiteDataAdapter(query, (System.Data.SQLite.SQLiteConnection)conn);
+            // crea un CommandBuilder che generi automaticamente le query:
+            commBuilder =
+                new System.Data.SQLite.SQLiteCommandBuilder((System.Data.SQLite.SQLiteDataAdapter)dAdapter);
+
+            dSet = new DataSet("Verbi");
+
+            dAdapter.Fill(dSet);
+
+            //DataTable dTable = dSet.Tables["VerbiInglesi"];
+            conn.Close();
+
+            dAdapter.UpdateCommand = commBuilder.GetUpdateCommand();
+            dAdapter.InsertCommand = commBuilder.GetInsertCommand();
+            dAdapter.DeleteCommand = commBuilder.GetDeleteCommand();
+        }
+
         public ArrayList LinguePresenti()
         {
             DbConnection conn = Connetti();
@@ -472,7 +495,9 @@ namespace gamon.ForeignWords
             cmd.CommandText = "ALTER TABLE VerbiInglesi ADD COLUMN Inf" + newLanguage + " TEXT;";
             cmd.ExecuteNonQuery();
 
-            System.IO.File.Copy("Help_English.txt", "Help_" + newLanguage + ".txt", true);
+            System.IO.File.Copy(Path.Combine(pathDati, "Help_English.txt"), 
+                Path.Combine(pathDati, "Help_" + newLanguage + ".txt"), true);
+            Disconnetti(); 
         }
     }
 }

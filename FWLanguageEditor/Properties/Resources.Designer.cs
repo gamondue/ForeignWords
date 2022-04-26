@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FWLanguageEditor.Properties {
+namespace gamon.ForeignWords.Properties {
     using System;
     
     

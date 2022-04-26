@@ -249,7 +249,7 @@ namespace gamon
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::FWLanguageEditor.Properties.Resources.gamon_LegoLogo_decentrato_sfondo_bianco_256x256;
+            this.pictureBox1.Image = global::gamon.ForeignWords.Properties.Resources.gamon_LegoLogo_decentrato_sfondo_bianco_256x256;
             this.pictureBox1.Location = new System.Drawing.Point(5, 77);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(307, 314);

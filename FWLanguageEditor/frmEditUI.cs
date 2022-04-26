@@ -12,39 +12,21 @@ using System.Globalization;
 namespace gamon.ForeignWords
 {
 
-    public partial class frmEdit : Form
+    public partial class frmEditUI : Form
     {
         DataSet dSetEsercizi;
-        DbDataAdapter dadapCaptions;
+        DbDataAdapter dAdapCaptions;
         ArrayList chkLingue = new ArrayList();
 
-        string newLanguage = ""; 
-
-        public frmEdit()
+        public frmEditUI()
         {
             InitializeComponent();
-            // Global.caricaLinguaInControlli(this);
-
-            // inizializzazioni per tutta l'applicazione
-            // lingua di default
-            Global.LinguaCorrente = "English";
-            // lingua del computer
-            string linguaComputer = CultureInfo.CurrentCulture.Name.ToLower();
-            foreach (string lingua in Global.Lingue)
-            {
-                //TODO aggiungere il codice lingua al database, così che il prossimo confronto
-                // possa funzionare
-                if (lingua.ToLower() == linguaComputer)
-                {
-                    Global.LinguaCorrente = lingua;
-                }
-                break;
-            }
-
             doCheckBoxes();
+        }
+        private void frmEdit_Load(object sender, EventArgs e)
+        {
             collegaGriglia();
         }
-
         private void doCheckBoxes()
         {
             // legge le lingue e fa i checkbox
@@ -61,17 +43,17 @@ namespace gamon.ForeignWords
                 if (lingua.ToString() == "English")
                     chk1.Checked = true;
                 chk1.CheckedChanged += new System.EventHandler(this.chk_CheckedChanged);
+                if (chk1.Name.IndexOf("English") >= 0)
+                {
+                    chk1.Checked = true;
+                    chk1.Enabled = false;
+                }
             }
         }
-
         private void collegaGriglia()
         {
-
             // DataSet e griglia
-
             ArrayList lingue = Global.LibDB.LinguePresenti();
-            Point punto = new Point(7, 7);
-
             string lingueVisualizzate = "";
             foreach (CheckBox ch in chkLingue)
             {
@@ -80,28 +62,30 @@ namespace gamon.ForeignWords
             }
             if (lingueVisualizzate.Length == 0) return;
             lingueVisualizzate = lingueVisualizzate.Substring(0, lingueVisualizzate.Length - 1);
-            Global.LibDB.DataSetCaptionLingue(ref dadapCaptions, ref dSetEsercizi, lingueVisualizzate);
+            Global.LibDB.DataSetCaptionLingue(ref dAdapCaptions, ref dSetEsercizi, lingueVisualizzate);
 
-            DataTable dTCaptions = dSetEsercizi.Tables[0];
+            DataTable dtCaptions = dSetEsercizi.Tables[0];
 
-            bindCaptions.DataSource = dTCaptions;
-            grdDati.DataSource = bindCaptions;
+            boundCaptions.DataSource = dtCaptions;
+            grdDati.DataSource = boundCaptions;
             grdDati.Columns[0].ReadOnly = true;
-            //grdDati.Columns[0].Visible = false;
         }
-
-        private void bntOK_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
+            btnSave.Enabled = false;
+
             DbConnection conn = Global.LibDB.Connetti();
             DbCommand comm = conn.CreateCommand();
 
-            dadapCaptions.Update(dSetEsercizi);
+            dAdapCaptions.Update(dSetEsercizi);
             dSetEsercizi.Clear();
-            dadapCaptions.Fill(dSetEsercizi);
+            dAdapCaptions.Fill(dSetEsercizi);
 
             grdDati.Refresh();
+            
+            Global.LibDB.Disconnetti();
+            btnSave.Enabled = false; 
         }
-
         private void btnAbort_Click(object sender, EventArgs e)
         {
             // se sono state fatte modifiche nella tabella, avverte che così verranno perse
@@ -116,19 +100,16 @@ namespace gamon.ForeignWords
             }
             this.Close();
         }
-
         private void grdDati_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             EventArgs e1 = null;
             btnAbort_Click(sender, e1);
         }
-
         private void chk_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox chk = (CheckBox)sender;
             collegaGriglia();
         }
-
         private void btnNuova_Click(object sender, EventArgs e)
         {
             frmNewLanguage nuovo = new frmNewLanguage();
@@ -150,7 +131,6 @@ namespace gamon.ForeignWords
                 doCheckBoxes();
             }
         }
-
         private void btnCopyDatabaseFile_Click(object sender, EventArgs e)
         {
             saveFileDialog.Title = ""; 
@@ -160,7 +140,6 @@ namespace gamon.ForeignWords
                 System.IO.File.Copy(Global.LibDB.NomeEPathDatabase, saveFileDialog.FileName, true);
             }
         }
-
         private void btnSend_Click(object sender, EventArgs e)
         {
             MessageBox.Show("TO DO!");
@@ -188,7 +167,6 @@ namespace gamon.ForeignWords
             //    "Find here enclosed the ForeignWords file I modified \r\n" + Datetime.Now + " " + username,
             //    null, false);
         }
-
         private void btnLeggiDatabase_Click(object sender, EventArgs e)
         {
             openFileDialog.FileName = "*.sqlite";

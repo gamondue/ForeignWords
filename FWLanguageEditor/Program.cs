@@ -20,7 +20,7 @@ namespace gamon.ForeignWords
 #if !DEBUG
             Application.Run(new gamon.frmAbout());
 #endif
-            Application.Run(new frmEdit());
+            Application.Run(new frmMain());
         }
     }
 }

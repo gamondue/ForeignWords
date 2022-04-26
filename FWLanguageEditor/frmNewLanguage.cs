@@ -19,10 +19,14 @@ namespace gamon.ForeignWords
 
         public frmNewLanguage()
         {
+            InitializeComponent();
             // TODO: Complete member initialization
             // CONTROLLARE SE SERVE
         }
+        private void frmNewLanguage_Load(object sender, EventArgs e)
+        {
 
+        }
         private void btnOK_Click(object sender, EventArgs e)
         {
             DialogResult r = MessageBox.Show("Please check carefully the spelling of the new languages' name!\nIs it correct?",
