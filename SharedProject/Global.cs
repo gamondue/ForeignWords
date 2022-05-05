@@ -9,13 +9,15 @@ namespace gamon.ForeignWords
         private static ArrayList lingue;
         public static Hashtable Captions;
         public static libDBForeignWords LibDB = new libDBForeignWords();
-
+        internal static string DevelopRoot = @"D:\Develop\Git\ForeignWords\";
+        public static string SqlFolder = "Database";
+        public static string FilesFolder = "Files";
         #region proprietà
         public static string LinguaCorrente
         {
           get { return Global.linguaCorrente; }
           set { 
-              Global.linguaCorrente = value;
+               .linguaCorrente = value;
               lingue = LibDB.LinguePresenti();
               Captions = LibDB.Prompts(Global.LinguaCorrente);
           }

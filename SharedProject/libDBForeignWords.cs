@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data.Common;
 using System.Data;
 using System.Data.SQLite;
-using System.Data.OleDb;
-using gamon.ForeignWords;
 using System.Collections;
-using System.Windows.Forms;
 using System.IO;
 
 namespace gamon.ForeignWords
@@ -21,22 +16,22 @@ namespace gamon.ForeignWords
 
         string nomeDatabase = "dbForeignWords";
         string nomeEPathDatabase;
-        public string pathDati;
+        public string pathSqLite;
 
         public libDBForeignWords()
         {
 #if DEBUG
             // aggiustare questa path se nel computer di sviluppo la path dei database non è questa! 
-            pathDati = @"D:\Develop\Git\ForeignWords\Database";
+            pathSqLite = Path.Combine(Global.DevelopRoot, Global.SqlFolder, nomeDatabase);
 #else
-            //pathDati= Application.LocalUserAppDataPath;
+            //pathSqLite= Application.LocalUserAppDataPath;
             //// toglie la versione dalla path e va nella cartella di ForeignWords
-            //pathDati = pathDati.Substring(0, pathDati.LastIndexOf('\\'));
-            //pathDati = System.IO.Path.Combine(pathDati, "ForeignWords");
+            //pathSqLite = pathDati.Substring(0, pathDati.LastIndexOf('\\'));
+            //pathSqLite = System.IO.Path.Combine(pathDati, "ForeignWords");
 
-            pathDati = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Database");
+            pathSqLite = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Database");
 #endif
-            nomeEPathDatabase = System.IO.Path.Combine(pathDati , nomeDatabase + ".sqlite");
+            nomeEPathDatabase = System.IO.Path.Combine(pathSqLite , nomeDatabase + ".sqlite");
             // provo ad aprire il file di SQLite, se non ci riesco lo copio dal file campione. 
             if (!System.IO.File.Exists(nomeEPathDatabase))
             {   
@@ -495,8 +490,8 @@ namespace gamon.ForeignWords
             cmd.CommandText = "ALTER TABLE VerbiInglesi ADD COLUMN Inf" + newLanguage + " TEXT;";
             cmd.ExecuteNonQuery();
 
-            System.IO.File.Copy(Path.Combine(pathDati, "Help_English.txt"), 
-                Path.Combine(pathDati, "Help_" + newLanguage + ".txt"), true);
+            System.IO.File.Copy(Path.Combine(pathSqLite, "Help_English.txt"), 
+                Path.Combine(pathSqLite, "Help_" + newLanguage + ".txt"), true);
             Disconnetti(); 
         }
     }

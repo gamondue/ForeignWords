@@ -109,6 +109,7 @@ namespace gamon.ForeignWords
             this.btnSend.Text = "Send database file to the author";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Visible = false;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // btnCopyDatabaseFile
             // 

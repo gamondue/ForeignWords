@@ -5,7 +5,6 @@ using System.Data.Common;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
-
 namespace gamon.ForeignWords
 {
     public partial class frmInfinitives : Form
@@ -100,6 +99,10 @@ namespace gamon.ForeignWords
                 }
             }
             this.Close();
+        }
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("TODO !!"); 
         }
     }
 }

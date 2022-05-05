@@ -1,11 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using gamon;
 using System.Data.Common;
 using System.Collections;
 using System.Globalization;
@@ -40,19 +36,20 @@ namespace gamon.ForeignWords
 
         public frmVerbi()
         {
-            if (PriorProcess() != null)
-            {
-                if (System.Windows.Forms.Application.MessageLoop)
-                {
-                    // WinForms app
-                    System.Windows.Forms.Application.Exit();
-                }
-                else
-                {
-                    // Console app
-                    System.Environment.Exit(1);
-                }
-            }
+            // non esegue se sta girando un'altra istanza 
+            //if (PriorProcess() != null)
+            //{
+            //    if (System.Windows.Forms.Application.MessageLoop)
+            //    {
+            //        // WinForms app
+            //        System.Windows.Forms.Application.Exit();
+            //    }
+            //    else
+            //    {
+            //        // Console app
+            //        System.Environment.Exit(1);
+            //    }
+            //}
             InitializeComponent();
 
             // inizializzazioni per tutta l'applicazione
@@ -784,13 +781,14 @@ namespace gamon.ForeignWords
         }
         private void mnuHelp_Click(object sender, EventArgs e)
         {
+            string file = "Help_" + Global.LinguaCorrente + ".txt"; 
             try
             {
-                System.Diagnostics.Process.Start("Help_" + Global.LinguaCorrente + ".txt");
+                System.Diagnostics.Process.Start(file);
             }
             catch
             {
-                MessageBox.Show("Couldn't open file 'help.txt'.");
+                MessageBox.Show("Couldn't open file '" + file + "'.");
             }
         }
         private void mnuAbout_Click(object sender, EventArgs e)
