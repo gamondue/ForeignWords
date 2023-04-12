@@ -5,19 +5,22 @@ namespace gamon.ForeignWords
 {
     public static class Global
     {
-        private static string linguaCorrente;
+        private static string? linguaCorrente;
         private static ArrayList lingue;
         public static Hashtable Captions;
-        public static libDBForeignWords LibDB = new libDBForeignWords();
-        internal static string DevelopRoot = @"D:\Develop\Git\ForeignWords\";
+        // mettere nella seguente la path giusta in base al computer di sviluppo 
+        //internal static string DevelopRoot = @"C:\Develop\Git\ForeignWords\bin\debug\";
+        internal static string DevelopRoot = @"C:\Develop\Git\ForeignWords\ForeignWords\bin\Debug";
         public static string SqlFolder = "Database";
         public static string FilesFolder = "Files";
+        public static libDBForeignWords LibDB = new libDBForeignWords(); 
+        
         #region proprietà
-        public static string LinguaCorrente
+        public static string? LinguaCorrente
         {
           get { return Global.linguaCorrente; }
-          set { 
-               .linguaCorrente = value;
+          set {
+              Global.linguaCorrente = value;
               lingue = LibDB.LinguePresenti();
               Captions = LibDB.Prompts(Global.LinguaCorrente);
           }

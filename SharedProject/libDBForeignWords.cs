@@ -22,7 +22,7 @@ namespace gamon.ForeignWords
         {
 #if DEBUG
             // aggiustare questa path se nel computer di sviluppo la path dei database non è questa! 
-            pathSqLite = Path.Combine(Global.DevelopRoot, Global.SqlFolder, nomeDatabase);
+            pathSqLite = Global.DevelopRoot;
 #else
             //pathSqLite= Application.LocalUserAppDataPath;
             //// toglie la versione dalla path e va nella cartella di ForeignWords
@@ -445,7 +445,6 @@ namespace gamon.ForeignWords
             dAdapter.InsertCommand = commBuilder.GetInsertCommand();
             dAdapter.DeleteCommand = commBuilder.GetDeleteCommand();
         }
-
         public ArrayList LinguePresenti()
         {
             DbConnection conn = Connetti();
@@ -475,7 +474,6 @@ namespace gamon.ForeignWords
             conn.Close();
             return p;
         }
-#endregion
         public void NuovaLingua(string newLanguage)
         {
             DbConnection conn = Connetti();
@@ -494,5 +492,6 @@ namespace gamon.ForeignWords
                 Path.Combine(pathSqLite, "Help_" + newLanguage + ".txt"), true);
             Disconnetti(); 
         }
+        #endregion
     }
 }

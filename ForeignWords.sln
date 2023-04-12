@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32407.337
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForeignWords", "ForeignWords\ForeignWords.csproj", "{34AA9285-76CF-4AB4-A91C-2814574846CF}"
 EndProject
@@ -21,11 +21,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuestionLoopConsole", "QuestionLoopConsole\QuestionLoopConsole.csproj", "{1264ABC2-E52F-420B-8121-52094E92CADE}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		SharedProject\SharedProject.projitems*{34aa9285-76cf-4ab4-a91c-2814574846cf}*SharedItemsImports = 5
-		SharedProject\SharedProject.projitems*{793d2d7d-ad4e-438b-9ea4-2225a894926a}*SharedItemsImports = 5
-		SharedProject\SharedProject.projitems*{d5fe75df-ef25-4f86-92cc-fd5406d9c6f7}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -57,5 +52,12 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B8A16E9-6648-491E-839E-C4D811F97A69}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{1264abc2-e52f-420b-8121-52094e92cade}*SharedItemsImports = 5
+		SharedProject\SharedProject.projitems*{34aa9285-76cf-4ab4-a91c-2814574846cf}*SharedItemsImports = 5
+		Comuni_gamonScuola\Comuni_gamonScuola.projitems*{7715196a-06cc-45ec-92f3-435325b6d871}*SharedItemsImports = 5
+		SharedProject\SharedProject.projitems*{793d2d7d-ad4e-438b-9ea4-2225a894926a}*SharedItemsImports = 5
+		SharedProject\SharedProject.projitems*{d5fe75df-ef25-4f86-92cc-fd5406d9c6f7}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
